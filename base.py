@@ -7,6 +7,7 @@ import sys
 class Base(QMainWindow):
     
     msg_to_terminal = Signal(dict, str) # при успешном получении или отправке сообщения выводить в терминал ui.terminal_window
+    telemetry_to_operator = Signal(str) # передача полученных данных для дальнейшего парсинга и вывода оператору
     
     def __init__(self):
         super().__init__()
@@ -83,16 +84,18 @@ class Base(QMainWindow):
         
         self.msg_to_terminal.emit(data, 'RCVD')
 
-        ip_addres = data['msg_data']['INFO']
+        #ip_addres = data['msg_data']['INFO']
         #print(ip_addres)
         
         if data['status'] == 'RESPONSE':
             
             if 'GPSRESPONSE' in data['msg_data']:
+                self.telemetry_to_operator.emit(data['msg_data']['GPSRESPONSE'])
                 #print(data['msg_data']['GPSRESPONSE'], end='')
                 pass
                 
             if 'IMURESPONSE' in data['msg_data']:
+                self.telemetry_to_operator.emit(data['msg_data']['IMURESPONSE'])
                 #print(data['msg_data']['IMURESPONSE'], end='')
                 pass
     
