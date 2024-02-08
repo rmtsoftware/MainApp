@@ -17,15 +17,13 @@ class TerminalWindow(ManualKeysControl):
         
         self.ui.btn_clean_textBrw.clicked.connect(self._clean_by_button)
      
-    
     def _clean_by_timer(self):
         if len(self.current_text) > 2000:
             self.current_text = ''
             
     def _clean_by_button(self):
         self.current_text = ''
-    
-        
+       
     def _cur_time(self):
         return datetime.datetime.now().strftime("%H:%M:%S.%f")[:-3]
     
