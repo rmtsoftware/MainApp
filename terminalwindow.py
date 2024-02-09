@@ -39,9 +39,12 @@ class TerminalWindow(ManualKeysControl):
     @Slot(object)  
     def show_msg(self, data, type):
         
-        if data['msg_data'] == {} and data['cmd'] == []:
+        try:
+            if data['msg_data'] == {} and data['cmd'] == []:
+                return
+        except KeyError:
             return
-        
+            
         if list(data['msg_data'].keys()) == ['INFO']:
             return
         

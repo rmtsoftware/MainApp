@@ -7,3 +7,4 @@
     5. powerlinecontrol
     6. manualkeyscontrol
     7. terminalwindow
+    8. datashower

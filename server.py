@@ -25,11 +25,10 @@ class ServerThread(QRunnable):
     def __init__(self):
         super().__init__()
         self.snd_msg = {'cmd': [], 'msg_data': {}}
-<<<<<<< HEAD
+
         self.HOST = "172.27.12.249"
-=======
-        self.HOST = "192.168.1.20"
->>>>>>> db425fe71307b65abe98a88e88a420215fa39fa2
+        #self.HOST = "192.168.1.20"
+
         self.PORT = 12345
         self.conn = None 
         self.addr = None

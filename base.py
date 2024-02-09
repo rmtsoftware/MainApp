@@ -24,7 +24,31 @@ class Base(QMainWindow):
         
         
         self.pool = QThreadPool.globalInstance()
-    
+        
+        self.set_zero_values()
+        
+    def set_zero_values(self):
+        self.ui.lb_latitude_val.setText('0')
+        self.ui.lb_NS_val.setText('0')
+        self.ui.lb_longitude_val.setText('0')
+        self.ui.lb_EW_val.setText('0')
+        self.ui.lb_altitude_val.setText('0')
+        self.ui.lb_grndspeed_val.setText('0')
+        
+        self.ui.lb_axl_x_val.setText('0')
+        self.ui.lb_axl_y_val.setText('0')
+        self.ui.lb_axl_z_val.setText('0')
+        self.ui.lb_mag_x_val.setText('0')
+        self.ui.lb_mag_y_val.setText('0')
+        self.ui.lb_mag_z_val.setText('0')
+        self.ui.lb_gyro_x_val.setText('0')
+        self.ui.lb_gyro_y_val.setText('0')
+        self.ui.lb_gyro_z_val.setText('0')
+        self.ui.lb_grn_head_val.setText('0')
+        
+        
+        
+        
   
     def start(self):
         self.server = ServerThread()
@@ -39,6 +63,8 @@ class Base(QMainWindow):
     def stop(self):
         try:
             self.server.conn.shutdown(0)
+            
+            self.set_zero_values()
             
             self.server.conn = None
             self.server.addr = None
