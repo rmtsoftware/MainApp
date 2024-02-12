@@ -26,8 +26,8 @@ class ServerThread(QRunnable):
         super().__init__()
         self.snd_msg = {'cmd': [], 'msg_data': {}}
 
+        #self.HOST = "localhost"
         self.HOST = "172.27.12.249"
-        #self.HOST = "192.168.1.20"
 
         self.PORT = 12345
         self.conn = None 
@@ -61,6 +61,11 @@ class ServerThread(QRunnable):
                 pass
             except OSError as e:
                 pass
+            except TypeError as e:
+                print(e)
+            except RuntimeError as e:
+                print(e)
+                print('[ERROR] - Перед закрытием приложения отключайте клиента (кнопка отключить)')
             finally:
                 self.signals.stoped.emit()
             # ВОЗМОЖНОСТЬ МАСШТАБИРОВАТЬ
@@ -130,26 +135,31 @@ class ServerThread(QRunnable):
         _CTIMEOUT - количество раз ожидание сообщения"""
         _TIMEOUT = 5
         _CTIMEOUT = 3
-        ready = select.select([conn], [], [], _TIMEOUT)
-        if ready[0]:  
-            self.no_ro_resp_counts = 0
-            raw_data = conn.recv(1024).decode()
-            return raw_data
-        
-        else:            
-            print(f'\n\t[WARNING] - Сервер не получил ответ {self.noRespCounts} раз')
-            self.no_ro_resp_counts += 1
-            if self.no_ro_resp_counts >= _CTIMEOUT:
-                raise ConnectionError(f" [ERROR] - Нет ответа от клиента в течение {self.noRespCounts*_TIMEOUT} секунд!\n")
+        if conn:
+            ready = select.select([conn], [], [], _TIMEOUT)
+            if ready[0]:
+                self.no_ro_resp_counts = 0
+                raw_data = conn.recv(1024).decode()
+                return raw_data
 
-            
+            else:
+                print(f'\n\t[WARNING] - Сервер не получил ответ {self.noRespCounts} раз')
+                self.no_ro_resp_counts += 1
+                if self.no_ro_resp_counts >= _CTIMEOUT:
+                    raise ConnectionError(f" [ERROR] - Нет ответа от клиента в течение {self.noRespCounts*_TIMEOUT} секунд!\n")
+
     def _parse_data(self, raw_data):
         """Преобразование полученных данных"""
-        data = json.loads(raw_data)
+        """Transform received data"""
+        try:
+            data = json.loads(raw_data)
+        except json.JSONDecodeError as e:
+            print(f'[ERROR] - Unable to parse the raw data: {e}')
+            data = {}
         return data
-    
-    
+
     def _send_data(self, conn):
         """Отправка данных клиенту"""
         self.data_to_resp = json.dumps(self.snd_msg).encode()
-        conn.sendall(self.data_to_resp)   
+        if conn is not None:  # Check if conn is not None before calling sendall
+            conn.sendall(self.data_to_resp)

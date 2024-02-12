@@ -7,49 +7,46 @@ import sys
 class PowerLineController(MotorController):
     def __init__(self):
         super().__init__()
-        
-        self.ui.le_pwr_mnl.editingFinished.connect(self._action_le_edited)
-        self.ui.le_pwr_mnl.setText('0')
-        self.pwr_mnl = int(self.ui.le_pwr_mnl.text())
-        
-        
-    def _action_le_edited(self):
-        """ Действия по окончанию изменения значения в lineEdit 'Задание мощности' """
-        
-        # Получение текста из области
-        _text = self.ui.le_pwr_mnl.text()
+        self.pwr_mnl: int = 0
+        self.reset_input_to_zero()
+        self.ui.le_pwr_mnl.editingFinished.connect(self._handle_line_edit)
 
-        # Проверка, что текст не пустой
-        if _text == '':
-            self.ui.le_pwr_mnl.setText('0')
-            self.pwr_mnl = int(self.ui.le_pwr_mnl.text())
+    def _handle_line_edit(self):
+        """ Действия по окончанию изменения значения в lineEdit 'Задание мощности' """
+
+        # Получение текста из области
+        user_input = self.ui.le_pwr_mnl.text()
+
+        if self._is_input_empty(user_input):
+            self.reset_input_to_zero()
             return
 
-        # Преобразование str в int
         try:
-            _val = int(_text)
+            self.pwr_mnl = self._check_valid_range(int(user_input))
         except ValueError as _:
-            #Messager._invalid_input()
-            self.ui.le_pwr_mnl.setText('0')
+            self.reset_input_to_zero()
+            return
 
-        # Проверка принадлежности к диапазону [0, 100] введённого значения
-        if _val > 100:
-            #Messager._invalid_input()
-            self.ui.le_pwr_mnl.setText('100')
+        self.ui.le_pwr_mnl.setText(str(self.pwr_mnl))
 
-        if _val < 0:
-            #Messager._invalid_input()
-            self.ui.le_pwr_mnl.setText('0')
+    @staticmethod
+    def _is_input_empty(user_input):
+        return user_input == ''
 
-        # Присвоение значения к глобальной переменной
-        # которая формирует команду на mainBoard 
-        self.pwr_mnl = int(self.ui.le_pwr_mnl.text())
-        
-        
-        
+    def reset_input_to_zero(self):
+        self.pwr_mnl = 0
+        self.ui.le_pwr_mnl.setText(str(self.pwr_mnl))
+
+    @staticmethod
+    def _check_valid_range(value):
+        if value > 100 or value < 0:
+            # Reset out of bound values to maximum or minimum limit respectively.
+            return 100 if value > 100 else 0
+        return value
+
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = PowerLineController()
     window.show()
     app.exec()
-    

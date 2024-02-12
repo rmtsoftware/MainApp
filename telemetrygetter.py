@@ -7,77 +7,37 @@ import sys
 class TelemetryGetter(Base):
     def __init__(self):
         super().__init__()
-        
-        self._state_cb_gps = 0 # состояние комбо бокса gps
-        self._state_cb_imu = 0 # состояние комбо бокса imu
-        
-        self.ui.btn_gps.clicked.connect(self._get_gps) # кнопка ручного запроса gps
-        self.ui.btn_imu.clicked.connect(self._get_imu) # кнопка ручного запроса imu
-        
-        self.ui.cb_auto_gps.stateChanged.connect(self._auto_gps_actions) # комбо бокс авто gps
-        self.ui.cb_auto_imu.stateChanged.connect(self._auto_imu_actions) # комбо бокс авто imu
-        
-        self.auto_rqst_timer = QTimer() # таймер автозапроса телеметрии
-        self.auto_rqst_timer.timeout.connect(self._auto_request)
-        self.auto_rqst_timer.start(300)
-     
-        
-    def _auto_gps_actions(self):
-        if self.ui.cb_auto_gps.checkState() == Qt.CheckState.Unchecked:
-            self._state_cb_gps -= 1            
-        if self.ui.cb_auto_gps.checkState() == Qt.CheckState.Checked:
-            self._state_cb_gps += 1 
+        self._auto_state = {'gps': 0, 'imu': 0}  # состояние комбо бокса gps, imu
+        self.ui.btn_gps.clicked.connect(lambda _: self.request_telemetry('gps'))
+        self.ui.btn_imu.clicked.connect(lambda _: self.request_telemetry('imu'))
+        self.ui.cb_auto_gps.stateChanged.connect(lambda _: self.update_auto_state('gps'))
+        self.ui.cb_auto_imu.stateChanged.connect(lambda _: self.update_auto_state('imu'))
+        self.auto_request_timer = QTimer()  # таймер автозапроса телеметрии
+        self.auto_request_timer.timeout.connect(self.auto_request_telemetry)
+        self.auto_request_timer.start(300)
 
+    def update_auto_state(self, telemetrytype):
+        if self.ui.__dict__[f'cb_auto_{telemetrytype}'].checkState() == Qt.CheckState.Unchecked:
+            self._auto_state[telemetrytype] -= 1
+        elif self.ui.__dict__[f'cb_auto_{telemetrytype}'].checkState() == Qt.CheckState.Checked:
+            self._auto_state[telemetrytype] += 1
 
-    def _auto_imu_actions(self):
-        if self.ui.cb_auto_imu.checkState() == Qt.CheckState.Unchecked:
-            self._state_cb_imu -= 1    
-        if self.ui.cb_auto_imu.checkState() == Qt.CheckState.Checked:
-            self._state_cb_imu += 1
-      
-            
-    def _auto_request(self):
-        
-        #if self.port.isOpen():
+    def auto_request_telemetry(self):
         try:
             if self.server.conn is not None:
-                
-                if self._state_cb_gps == 1 and self._state_cb_imu == 0:
-                    self._get_gps()
-                    self.ui.btn_gps.setEnabled(False)
-                else:
-                    self.ui.btn_gps.setEnabled(True)
-
-
-                if self._state_cb_imu == 1 and self._state_cb_gps == 0:
-                    self._get_imu()
-                    self.ui.btn_imu.setEnabled(False)
-                else:
-                    self.ui.btn_imu.setEnabled(True)
-
-
-                if self._state_cb_imu == 1 and self._state_cb_gps == 1:
-                    self.ui.btn_imu.setEnabled(False)
-                    self.ui.btn_gps.setEnabled(False)
-
-                    self._get_gps()
-                    QTimer.singleShot(200, self._get_imu)
-                    
-                if self._state_cb_imu == 0 and self._state_cb_gps == 0:
-                    self.ui.btn_imu.setEnabled(True)
-                    self.ui.btn_gps.setEnabled(True)
+                for telemetrytype in ['gps', 'imu']:
+                    if self._auto_state[telemetrytype] == 1:
+                        self.ui.__dict__[f'btn_{telemetrytype}'].setEnabled(False)
+                        self.request_telemetry(telemetrytype)
+                    elif self._auto_state[telemetrytype] == 0:
+                        self.ui.__dict__[f'btn_{telemetrytype}'].setEnabled(True)
         except AttributeError as _:
             pass
-      
-        
-    def _get_gps(self):
-        self.server.signals.get_gps.emit()
+
+    def request_telemetry(self, telemetrytype):
+        self.server.signals.__dict__[f'get_{telemetrytype}'].emit()
 
 
-    def _get_imu(self):
-        self.server.signals.get_imu.emit()
-
-    
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = TelemetryGetter()
