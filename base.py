@@ -40,10 +40,7 @@ class Base(QMainWindow):  # renaming the class for more clarity
     def set_zero_values(self):
         zero_labels = [self.ui.lb_latitude_val, self.ui.lb_NS_val, self.ui.lb_longitude_val,
                        self.ui.lb_EW_val, self.ui.lb_altitude_val, self.ui.lb_grndspeed_val,
-                       self.ui.lb_axl_x_val, self.ui.lb_axl_y_val, self.ui.lb_axl_z_val,
-                       self.ui.lb_mag_x_val, self.ui.lb_mag_y_val, self.ui.lb_mag_z_val,
-                       self.ui.lb_gyro_x_val, self.ui.lb_gyro_y_val, self.ui.lb_gyro_z_val,
-                       self.ui.lb_grn_head_val]
+                       self.ui.lb_axl_x_val, self.ui.lb_axl_y_val, self.ui.lb_axl_z_val,]
 
         for label in zero_labels:
             label.setText(ZERO)  # Introduced Constant 'ZERO'

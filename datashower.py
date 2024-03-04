@@ -11,6 +11,8 @@ class DataShower(TerminalWindow):
 
     @Slot(object)
     def parse(self, raw_data: str):
+        
+        print(raw_data)
 
         splitted = raw_data.split(',')
         data = splitted[4:-1]
@@ -44,29 +46,14 @@ class DataShower(TerminalWindow):
         self.ui.lb_grndspeed_val.setText(str(GrndSpeed))
 
     def parse_msg_imu(self, data):
-        # D,s,1,3,0.606,-0.128,95.909*1
-        AXL_x = int(data[0])
-        AXL_y = int(data[1])
-        AXL_z = int(data[2])
-        MAG_x = int(data[3])
-        MAG_y = int(data[4])
-        MAG_z = int(data[5])
-        GYRO_x = int(data[6])
-        GYRO_y = int(data[7])
-        GYRO_z = int(data[8])
-        Gnd_Heading = float(data[9])
-
+        print(data)
+        AXL_x = data[0]
+        AXL_y = data[1]
+        AXL_z = data[2]
         self.ui.lb_axl_x_val.setText(str(AXL_x))
         self.ui.lb_axl_y_val.setText(str(AXL_y))
         self.ui.lb_axl_z_val.setText(str(AXL_z))
-        self.ui.lb_mag_x_val.setText(str(MAG_x))
-        self.ui.lb_mag_y_val.setText(str(MAG_y))
-        self.ui.lb_mag_z_val.setText(str(MAG_z))
-        self.ui.lb_gyro_x_val.setText(str(GYRO_x))
-        self.ui.lb_gyro_y_val.setText(str(GYRO_y))
-        self.ui.lb_gyro_z_val.setText(str(GYRO_z))
-        self.ui.lb_grn_head_val.setText(str(Gnd_Heading))
-
+        
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

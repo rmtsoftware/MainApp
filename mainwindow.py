@@ -15,16 +15,17 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QHBoxLayout, QLabel,
-    QLineEdit, QMainWindow, QMenuBar, QPushButton,
-    QSizePolicy, QStatusBar, QTextBrowser, QVBoxLayout,
-    QWidget)
+from PySide6.QtWebEngineWidgets import QWebEngineView
+from PySide6.QtWidgets import (QApplication, QCheckBox, QHBoxLayout, QHeaderView,
+    QLabel, QLineEdit, QMainWindow, QMenuBar,
+    QPushButton, QSizePolicy, QStatusBar, QTableWidget,
+    QTableWidgetItem, QTextBrowser, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(994, 599)
+        MainWindow.resize(1192, 742)
         MainWindow.setStyleSheet(u"color: black;")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -82,7 +83,7 @@ class Ui_MainWindow(object):
 
         self.layoutWidget2 = QWidget(self.centralwidget)
         self.layoutWidget2.setObjectName(u"layoutWidget2")
-        self.layoutWidget2.setGeometry(QRect(170, 100, 141, 111))
+        self.layoutWidget2.setGeometry(QRect(190, 100, 141, 111))
         self.verticalLayout_3 = QVBoxLayout(self.layoutWidget2)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -139,7 +140,7 @@ class Ui_MainWindow(object):
 
         self.layoutWidget4 = QWidget(self.centralwidget)
         self.layoutWidget4.setObjectName(u"layoutWidget4")
-        self.layoutWidget4.setGeometry(QRect(170, 220, 141, 49))
+        self.layoutWidget4.setGeometry(QRect(190, 220, 141, 49))
         self.verticalLayout_5 = QVBoxLayout(self.layoutWidget4)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -158,7 +159,7 @@ class Ui_MainWindow(object):
 
         self.layoutWidget5 = QWidget(self.centralwidget)
         self.layoutWidget5.setObjectName(u"layoutWidget5")
-        self.layoutWidget5.setGeometry(QRect(170, 10, 141, 81))
+        self.layoutWidget5.setGeometry(QRect(190, 10, 141, 81))
         self.verticalLayout_6 = QVBoxLayout(self.layoutWidget5)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
@@ -229,7 +230,7 @@ class Ui_MainWindow(object):
 
         self.layoutWidget7 = QWidget(self.centralwidget)
         self.layoutWidget7.setObjectName(u"layoutWidget7")
-        self.layoutWidget7.setGeometry(QRect(320, 10, 461, 261))
+        self.layoutWidget7.setGeometry(QRect(20, 420, 461, 271))
         self.verticalLayout_8 = QVBoxLayout(self.layoutWidget7)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
@@ -258,22 +259,22 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_clean_textBrw)
 
-        self.widget = QWidget(self.centralwidget)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(800, 10, 126, 140))
-        self.verticalLayout_9 = QVBoxLayout(self.widget)
+        self.layoutWidget8 = QWidget(self.centralwidget)
+        self.layoutWidget8.setObjectName(u"layoutWidget8")
+        self.layoutWidget8.setGeometry(QRect(360, 10, 126, 140))
+        self.verticalLayout_9 = QVBoxLayout(self.layoutWidget8)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.lb_latitude = QLabel(self.widget)
+        self.lb_latitude = QLabel(self.layoutWidget8)
         self.lb_latitude.setObjectName(u"lb_latitude")
         self.lb_latitude.setMinimumSize(QSize(58, 0))
         self.lb_latitude.setMaximumSize(QSize(58, 16777215))
 
         self.horizontalLayout_3.addWidget(self.lb_latitude)
 
-        self.lb_latitude_val = QLabel(self.widget)
+        self.lb_latitude_val = QLabel(self.layoutWidget8)
         self.lb_latitude_val.setObjectName(u"lb_latitude_val")
 
         self.horizontalLayout_3.addWidget(self.lb_latitude_val)
@@ -283,14 +284,14 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.lb_NS = QLabel(self.widget)
+        self.lb_NS = QLabel(self.layoutWidget8)
         self.lb_NS.setObjectName(u"lb_NS")
         self.lb_NS.setMinimumSize(QSize(58, 0))
         self.lb_NS.setMaximumSize(QSize(58, 16777215))
 
         self.horizontalLayout_4.addWidget(self.lb_NS)
 
-        self.lb_NS_val = QLabel(self.widget)
+        self.lb_NS_val = QLabel(self.layoutWidget8)
         self.lb_NS_val.setObjectName(u"lb_NS_val")
 
         self.horizontalLayout_4.addWidget(self.lb_NS_val)
@@ -300,14 +301,14 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_5 = QHBoxLayout()
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.lb_longitude = QLabel(self.widget)
+        self.lb_longitude = QLabel(self.layoutWidget8)
         self.lb_longitude.setObjectName(u"lb_longitude")
         self.lb_longitude.setMinimumSize(QSize(58, 0))
         self.lb_longitude.setMaximumSize(QSize(58, 16777215))
 
         self.horizontalLayout_5.addWidget(self.lb_longitude)
 
-        self.lb_longitude_val = QLabel(self.widget)
+        self.lb_longitude_val = QLabel(self.layoutWidget8)
         self.lb_longitude_val.setObjectName(u"lb_longitude_val")
 
         self.horizontalLayout_5.addWidget(self.lb_longitude_val)
@@ -317,14 +318,14 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.lb_EW = QLabel(self.widget)
+        self.lb_EW = QLabel(self.layoutWidget8)
         self.lb_EW.setObjectName(u"lb_EW")
         self.lb_EW.setMinimumSize(QSize(58, 0))
         self.lb_EW.setMaximumSize(QSize(58, 16777215))
 
         self.horizontalLayout_6.addWidget(self.lb_EW)
 
-        self.lb_EW_val = QLabel(self.widget)
+        self.lb_EW_val = QLabel(self.layoutWidget8)
         self.lb_EW_val.setObjectName(u"lb_EW_val")
 
         self.horizontalLayout_6.addWidget(self.lb_EW_val)
@@ -334,14 +335,14 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7 = QHBoxLayout()
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.lb_altitude = QLabel(self.widget)
+        self.lb_altitude = QLabel(self.layoutWidget8)
         self.lb_altitude.setObjectName(u"lb_altitude")
         self.lb_altitude.setMinimumSize(QSize(58, 0))
         self.lb_altitude.setMaximumSize(QSize(58, 16777215))
 
         self.horizontalLayout_7.addWidget(self.lb_altitude)
 
-        self.lb_altitude_val = QLabel(self.widget)
+        self.lb_altitude_val = QLabel(self.layoutWidget8)
         self.lb_altitude_val.setObjectName(u"lb_altitude_val")
 
         self.horizontalLayout_7.addWidget(self.lb_altitude_val)
@@ -351,14 +352,14 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8 = QHBoxLayout()
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.lb_grndspeed = QLabel(self.widget)
+        self.lb_grndspeed = QLabel(self.layoutWidget8)
         self.lb_grndspeed.setObjectName(u"lb_grndspeed")
         self.lb_grndspeed.setMinimumSize(QSize(58, 0))
         self.lb_grndspeed.setMaximumSize(QSize(58, 16777215))
 
         self.horizontalLayout_8.addWidget(self.lb_grndspeed)
 
-        self.lb_grndspeed_val = QLabel(self.widget)
+        self.lb_grndspeed_val = QLabel(self.layoutWidget8)
         self.lb_grndspeed_val.setObjectName(u"lb_grndspeed_val")
 
         self.horizontalLayout_8.addWidget(self.lb_grndspeed_val)
@@ -366,22 +367,32 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_9.addLayout(self.horizontalLayout_8)
 
-        self.widget1 = QWidget(self.centralwidget)
-        self.widget1.setObjectName(u"widget1")
-        self.widget1.setGeometry(QRect(800, 160, 131, 236))
-        self.verticalLayout_10 = QVBoxLayout(self.widget1)
+        self.webEngineView = QWebEngineView(self.centralwidget)
+        self.webEngineView.setObjectName(u"webEngineView")
+        self.webEngineView.setGeometry(QRect(500, 10, 681, 451))
+        self.webEngineView.setUrl(QUrl(u"about:blank"))
+        self.table_points = QTableWidget(self.centralwidget)
+        self.table_points.setObjectName(u"table_points")
+        self.table_points.setGeometry(QRect(500, 470, 681, 221))
+        self.btn_delete_points = QPushButton(self.centralwidget)
+        self.btn_delete_points.setObjectName(u"btn_delete_points")
+        self.btn_delete_points.setGeometry(QRect(1030, 420, 151, 41))
+        self.widget = QWidget(self.centralwidget)
+        self.widget.setObjectName(u"widget")
+        self.widget.setGeometry(QRect(361, 161, 121, 81))
+        self.verticalLayout_10 = QVBoxLayout(self.widget)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_9 = QHBoxLayout()
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.lb_axl_x = QLabel(self.widget1)
+        self.lb_axl_x = QLabel(self.widget)
         self.lb_axl_x.setObjectName(u"lb_axl_x")
         self.lb_axl_x.setMinimumSize(QSize(58, 0))
         self.lb_axl_x.setMaximumSize(QSize(58, 16777215))
 
         self.horizontalLayout_9.addWidget(self.lb_axl_x)
 
-        self.lb_axl_x_val = QLabel(self.widget1)
+        self.lb_axl_x_val = QLabel(self.widget)
         self.lb_axl_x_val.setObjectName(u"lb_axl_x_val")
         self.lb_axl_x_val.setMinimumSize(QSize(0, 0))
         self.lb_axl_x_val.setMaximumSize(QSize(16777215, 16777215))
@@ -393,14 +404,14 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_10 = QHBoxLayout()
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
-        self.lb_axl_y = QLabel(self.widget1)
+        self.lb_axl_y = QLabel(self.widget)
         self.lb_axl_y.setObjectName(u"lb_axl_y")
         self.lb_axl_y.setMinimumSize(QSize(58, 0))
         self.lb_axl_y.setMaximumSize(QSize(58, 16777215))
 
         self.horizontalLayout_10.addWidget(self.lb_axl_y)
 
-        self.lb_axl_y_val = QLabel(self.widget1)
+        self.lb_axl_y_val = QLabel(self.widget)
         self.lb_axl_y_val.setObjectName(u"lb_axl_y_val")
         self.lb_axl_y_val.setMinimumSize(QSize(0, 0))
         self.lb_axl_y_val.setMaximumSize(QSize(16777215, 16777215))
@@ -412,14 +423,14 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11 = QHBoxLayout()
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.lb_axl_z = QLabel(self.widget1)
+        self.lb_axl_z = QLabel(self.widget)
         self.lb_axl_z.setObjectName(u"lb_axl_z")
         self.lb_axl_z.setMinimumSize(QSize(58, 0))
         self.lb_axl_z.setMaximumSize(QSize(58, 16777215))
 
         self.horizontalLayout_11.addWidget(self.lb_axl_z)
 
-        self.lb_axl_z_val = QLabel(self.widget1)
+        self.lb_axl_z_val = QLabel(self.widget)
         self.lb_axl_z_val.setObjectName(u"lb_axl_z_val")
         self.lb_axl_z_val.setMinimumSize(QSize(0, 0))
         self.lb_axl_z_val.setMaximumSize(QSize(16777215, 16777215))
@@ -429,143 +440,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addLayout(self.horizontalLayout_11)
 
-        self.horizontalLayout_12 = QHBoxLayout()
-        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
-        self.lb_mag_x = QLabel(self.widget1)
-        self.lb_mag_x.setObjectName(u"lb_mag_x")
-        self.lb_mag_x.setMinimumSize(QSize(58, 0))
-        self.lb_mag_x.setMaximumSize(QSize(58, 16777215))
-
-        self.horizontalLayout_12.addWidget(self.lb_mag_x)
-
-        self.lb_mag_x_val = QLabel(self.widget1)
-        self.lb_mag_x_val.setObjectName(u"lb_mag_x_val")
-        self.lb_mag_x_val.setMinimumSize(QSize(0, 0))
-        self.lb_mag_x_val.setMaximumSize(QSize(16777215, 16777215))
-
-        self.horizontalLayout_12.addWidget(self.lb_mag_x_val)
-
-
-        self.verticalLayout_10.addLayout(self.horizontalLayout_12)
-
-        self.horizontalLayout_13 = QHBoxLayout()
-        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
-        self.lb_mag_y = QLabel(self.widget1)
-        self.lb_mag_y.setObjectName(u"lb_mag_y")
-        self.lb_mag_y.setMinimumSize(QSize(58, 0))
-        self.lb_mag_y.setMaximumSize(QSize(58, 16777215))
-
-        self.horizontalLayout_13.addWidget(self.lb_mag_y)
-
-        self.lb_mag_y_val = QLabel(self.widget1)
-        self.lb_mag_y_val.setObjectName(u"lb_mag_y_val")
-        self.lb_mag_y_val.setMinimumSize(QSize(0, 0))
-        self.lb_mag_y_val.setMaximumSize(QSize(16777215, 16777215))
-
-        self.horizontalLayout_13.addWidget(self.lb_mag_y_val)
-
-
-        self.verticalLayout_10.addLayout(self.horizontalLayout_13)
-
-        self.horizontalLayout_14 = QHBoxLayout()
-        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.lb_mag_z = QLabel(self.widget1)
-        self.lb_mag_z.setObjectName(u"lb_mag_z")
-        self.lb_mag_z.setMinimumSize(QSize(58, 0))
-        self.lb_mag_z.setMaximumSize(QSize(58, 16777215))
-
-        self.horizontalLayout_14.addWidget(self.lb_mag_z)
-
-        self.lb_mag_z_val = QLabel(self.widget1)
-        self.lb_mag_z_val.setObjectName(u"lb_mag_z_val")
-        self.lb_mag_z_val.setMinimumSize(QSize(0, 0))
-        self.lb_mag_z_val.setMaximumSize(QSize(16777215, 16777215))
-
-        self.horizontalLayout_14.addWidget(self.lb_mag_z_val)
-
-
-        self.verticalLayout_10.addLayout(self.horizontalLayout_14)
-
-        self.horizontalLayout_15 = QHBoxLayout()
-        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
-        self.lb_gyro_x = QLabel(self.widget1)
-        self.lb_gyro_x.setObjectName(u"lb_gyro_x")
-        self.lb_gyro_x.setMinimumSize(QSize(58, 0))
-        self.lb_gyro_x.setMaximumSize(QSize(58, 16777215))
-
-        self.horizontalLayout_15.addWidget(self.lb_gyro_x)
-
-        self.lb_gyro_x_val = QLabel(self.widget1)
-        self.lb_gyro_x_val.setObjectName(u"lb_gyro_x_val")
-        self.lb_gyro_x_val.setMinimumSize(QSize(0, 0))
-        self.lb_gyro_x_val.setMaximumSize(QSize(16777215, 16777215))
-
-        self.horizontalLayout_15.addWidget(self.lb_gyro_x_val)
-
-
-        self.verticalLayout_10.addLayout(self.horizontalLayout_15)
-
-        self.horizontalLayout_16 = QHBoxLayout()
-        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
-        self.lb_gyro_y = QLabel(self.widget1)
-        self.lb_gyro_y.setObjectName(u"lb_gyro_y")
-        self.lb_gyro_y.setMinimumSize(QSize(58, 0))
-        self.lb_gyro_y.setMaximumSize(QSize(58, 16777215))
-
-        self.horizontalLayout_16.addWidget(self.lb_gyro_y)
-
-        self.lb_gyro_y_val = QLabel(self.widget1)
-        self.lb_gyro_y_val.setObjectName(u"lb_gyro_y_val")
-        self.lb_gyro_y_val.setMinimumSize(QSize(0, 0))
-        self.lb_gyro_y_val.setMaximumSize(QSize(16777215, 16777215))
-
-        self.horizontalLayout_16.addWidget(self.lb_gyro_y_val)
-
-
-        self.verticalLayout_10.addLayout(self.horizontalLayout_16)
-
-        self.horizontalLayout_17 = QHBoxLayout()
-        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
-        self.lb_gyro_z = QLabel(self.widget1)
-        self.lb_gyro_z.setObjectName(u"lb_gyro_z")
-        self.lb_gyro_z.setMinimumSize(QSize(58, 0))
-        self.lb_gyro_z.setMaximumSize(QSize(58, 16777215))
-
-        self.horizontalLayout_17.addWidget(self.lb_gyro_z)
-
-        self.lb_gyro_z_val = QLabel(self.widget1)
-        self.lb_gyro_z_val.setObjectName(u"lb_gyro_z_val")
-        self.lb_gyro_z_val.setMinimumSize(QSize(0, 0))
-        self.lb_gyro_z_val.setMaximumSize(QSize(16777215, 16777215))
-
-        self.horizontalLayout_17.addWidget(self.lb_gyro_z_val)
-
-
-        self.verticalLayout_10.addLayout(self.horizontalLayout_17)
-
-        self.horizontalLayout_18 = QHBoxLayout()
-        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
-        self.lb_grn_head = QLabel(self.widget1)
-        self.lb_grn_head.setObjectName(u"lb_grn_head")
-        self.lb_grn_head.setMinimumSize(QSize(58, 0))
-        self.lb_grn_head.setMaximumSize(QSize(58, 16777215))
-
-        self.horizontalLayout_18.addWidget(self.lb_grn_head)
-
-        self.lb_grn_head_val = QLabel(self.widget1)
-        self.lb_grn_head_val.setObjectName(u"lb_grn_head_val")
-        self.lb_grn_head_val.setMinimumSize(QSize(0, 0))
-        self.lb_grn_head_val.setMaximumSize(QSize(16777215, 16777215))
-
-        self.horizontalLayout_18.addWidget(self.lb_grn_head_val)
-
-
-        self.verticalLayout_10.addLayout(self.horizontalLayout_18)
-
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 994, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1192, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -617,25 +495,12 @@ class Ui_MainWindow(object):
         self.lb_altitude_val.setText(QCoreApplication.translate("MainWindow", u"Altitude", None))
         self.lb_grndspeed.setText(QCoreApplication.translate("MainWindow", u"GrndSpeed", None))
         self.lb_grndspeed_val.setText(QCoreApplication.translate("MainWindow", u"GrndSpeed", None))
+        self.btn_delete_points.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0442\u0435\u0440\u0435\u0442\u044c \u0442\u043e\u0447\u043a\u0438", None))
         self.lb_axl_x.setText(QCoreApplication.translate("MainWindow", u"AXL_x", None))
         self.lb_axl_x_val.setText(QCoreApplication.translate("MainWindow", u"AXL_x", None))
         self.lb_axl_y.setText(QCoreApplication.translate("MainWindow", u"AXL_y", None))
         self.lb_axl_y_val.setText(QCoreApplication.translate("MainWindow", u"AXL_y", None))
         self.lb_axl_z.setText(QCoreApplication.translate("MainWindow", u"AXL_z", None))
         self.lb_axl_z_val.setText(QCoreApplication.translate("MainWindow", u"AXL_z", None))
-        self.lb_mag_x.setText(QCoreApplication.translate("MainWindow", u"MAG_x", None))
-        self.lb_mag_x_val.setText(QCoreApplication.translate("MainWindow", u"MAG_x", None))
-        self.lb_mag_y.setText(QCoreApplication.translate("MainWindow", u"MAG_y", None))
-        self.lb_mag_y_val.setText(QCoreApplication.translate("MainWindow", u"MAG_y", None))
-        self.lb_mag_z.setText(QCoreApplication.translate("MainWindow", u"MAG_z", None))
-        self.lb_mag_z_val.setText(QCoreApplication.translate("MainWindow", u"MAG_z", None))
-        self.lb_gyro_x.setText(QCoreApplication.translate("MainWindow", u"GYRO_x", None))
-        self.lb_gyro_x_val.setText(QCoreApplication.translate("MainWindow", u"GYRO_x", None))
-        self.lb_gyro_y.setText(QCoreApplication.translate("MainWindow", u"GYRO_y", None))
-        self.lb_gyro_y_val.setText(QCoreApplication.translate("MainWindow", u"GYRO_y", None))
-        self.lb_gyro_z.setText(QCoreApplication.translate("MainWindow", u"GYRO_z", None))
-        self.lb_gyro_z_val.setText(QCoreApplication.translate("MainWindow", u"GYRO_z", None))
-        self.lb_grn_head.setText(QCoreApplication.translate("MainWindow", u"GndHead", None))
-        self.lb_grn_head_val.setText(QCoreApplication.translate("MainWindow", u"GndHead", None))
     # retranslateUi
 
