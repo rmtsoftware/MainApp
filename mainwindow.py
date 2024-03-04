@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1192, 742)
+        MainWindow.resize(1701, 742)
         MainWindow.setStyleSheet(u"color: black;")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -66,10 +66,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_2 = QVBoxLayout(self.layoutWidget1)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.lb_connection = QLabel(self.layoutWidget1)
-        self.lb_connection.setObjectName(u"lb_connection")
+        self.lb_name_map_5 = QLabel(self.layoutWidget1)
+        self.lb_name_map_5.setObjectName(u"lb_name_map_5")
+        self.lb_name_map_5.setMaximumSize(QSize(150, 16))
+        self.lb_name_map_5.setStyleSheet(u"border: None;")
 
-        self.verticalLayout_2.addWidget(self.lb_connection)
+        self.verticalLayout_2.addWidget(self.lb_name_map_5)
 
         self.btn_server_start = QPushButton(self.layoutWidget1)
         self.btn_server_start.setObjectName(u"btn_server_start")
@@ -140,7 +142,7 @@ class Ui_MainWindow(object):
 
         self.layoutWidget4 = QWidget(self.centralwidget)
         self.layoutWidget4.setObjectName(u"layoutWidget4")
-        self.layoutWidget4.setGeometry(QRect(190, 220, 141, 49))
+        self.layoutWidget4.setGeometry(QRect(20, 330, 142, 49))
         self.verticalLayout_5 = QVBoxLayout(self.layoutWidget4)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -163,10 +165,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_6 = QVBoxLayout(self.layoutWidget5)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.lb_info = QLabel(self.layoutWidget5)
-        self.lb_info.setObjectName(u"lb_info")
+        self.lb_name_map_4 = QLabel(self.layoutWidget5)
+        self.lb_name_map_4.setObjectName(u"lb_name_map_4")
+        self.lb_name_map_4.setMaximumSize(QSize(101, 16))
+        self.lb_name_map_4.setStyleSheet(u"border: None;")
 
-        self.verticalLayout_6.addWidget(self.lb_info)
+        self.verticalLayout_6.addWidget(self.lb_name_map_4)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -204,7 +208,7 @@ class Ui_MainWindow(object):
 
         self.layoutWidget6 = QWidget(self.centralwidget)
         self.layoutWidget6.setObjectName(u"layoutWidget6")
-        self.layoutWidget6.setGeometry(QRect(20, 330, 141, 80))
+        self.layoutWidget6.setGeometry(QRect(190, 220, 141, 80))
         self.verticalLayout_7 = QVBoxLayout(self.layoutWidget6)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.verticalLayout_7.setContentsMargins(0, 0, 0, 0)
@@ -261,10 +265,17 @@ class Ui_MainWindow(object):
 
         self.layoutWidget8 = QWidget(self.centralwidget)
         self.layoutWidget8.setObjectName(u"layoutWidget8")
-        self.layoutWidget8.setGeometry(QRect(360, 10, 126, 140))
+        self.layoutWidget8.setGeometry(QRect(350, 10, 131, 184))
         self.verticalLayout_9 = QVBoxLayout(self.layoutWidget8)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
+        self.lb_name_map_2 = QLabel(self.layoutWidget8)
+        self.lb_name_map_2.setObjectName(u"lb_name_map_2")
+        self.lb_name_map_2.setMaximumSize(QSize(101, 16))
+        self.lb_name_map_2.setStyleSheet(u"border: None;")
+
+        self.verticalLayout_9.addWidget(self.lb_name_map_2)
+
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.lb_latitude = QLabel(self.layoutWidget8)
@@ -367,22 +378,19 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_9.addLayout(self.horizontalLayout_8)
 
-        self.webEngineView = QWebEngineView(self.centralwidget)
-        self.webEngineView.setObjectName(u"webEngineView")
-        self.webEngineView.setGeometry(QRect(500, 10, 681, 451))
-        self.webEngineView.setUrl(QUrl(u"about:blank"))
-        self.table_points = QTableWidget(self.centralwidget)
-        self.table_points.setObjectName(u"table_points")
-        self.table_points.setGeometry(QRect(500, 470, 681, 221))
-        self.btn_delete_points = QPushButton(self.centralwidget)
-        self.btn_delete_points.setObjectName(u"btn_delete_points")
-        self.btn_delete_points.setGeometry(QRect(1030, 420, 151, 41))
         self.widget = QWidget(self.centralwidget)
         self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(361, 161, 121, 81))
+        self.widget.setGeometry(QRect(350, 210, 131, 90))
         self.verticalLayout_10 = QVBoxLayout(self.widget)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.lb_name_map_3 = QLabel(self.widget)
+        self.lb_name_map_3.setObjectName(u"lb_name_map_3")
+        self.lb_name_map_3.setMaximumSize(QSize(101, 16))
+        self.lb_name_map_3.setStyleSheet(u"border: None;")
+
+        self.verticalLayout_10.addWidget(self.lb_name_map_3)
+
         self.horizontalLayout_9 = QHBoxLayout()
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.lb_axl_x = QLabel(self.widget)
@@ -440,10 +448,90 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addLayout(self.horizontalLayout_11)
 
+        self.widget1 = QWidget(self.centralwidget)
+        self.widget1.setObjectName(u"widget1")
+        self.widget1.setGeometry(QRect(500, 420, 541, 271))
+        self.verticalLayout_12 = QVBoxLayout(self.widget1)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.verticalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.label_9 = QLabel(self.widget1)
+        self.label_9.setObjectName(u"label_9")
+
+        self.verticalLayout_12.addWidget(self.label_9)
+
+        self.table_points = QTableWidget(self.widget1)
+        self.table_points.setObjectName(u"table_points")
+
+        self.verticalLayout_12.addWidget(self.table_points)
+
+        self.btn_delete_points = QPushButton(self.widget1)
+        self.btn_delete_points.setObjectName(u"btn_delete_points")
+        self.btn_delete_points.setMinimumSize(QSize(0, 25))
+        self.btn_delete_points.setStyleSheet(u"")
+
+        self.verticalLayout_12.addWidget(self.btn_delete_points)
+
+        self.widget2 = QWidget(self.centralwidget)
+        self.widget2.setObjectName(u"widget2")
+        self.widget2.setGeometry(QRect(500, 14, 543, 391))
+        self.verticalLayout_11 = QVBoxLayout(self.widget2)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.verticalLayout_11.setContentsMargins(0, 0, 0, 0)
+        self.lb_name_map = QLabel(self.widget2)
+        self.lb_name_map.setObjectName(u"lb_name_map")
+        self.lb_name_map.setMaximumSize(QSize(101, 16))
+        self.lb_name_map.setStyleSheet(u"border: None;")
+
+        self.verticalLayout_11.addWidget(self.lb_name_map)
+
+        self.webEngineView = QWebEngineView(self.widget2)
+        self.webEngineView.setObjectName(u"webEngineView")
+        self.webEngineView.setUrl(QUrl(u"about:blank"))
+
+        self.verticalLayout_11.addWidget(self.webEngineView)
+
+        self.widget3 = QWidget(self.centralwidget)
+        self.widget3.setObjectName(u"widget3")
+        self.widget3.setGeometry(QRect(1050, 13, 642, 421))
+        self.verticalLayout_13 = QVBoxLayout(self.widget3)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.lb_name_camera_2 = QLabel(self.widget3)
+        self.lb_name_camera_2.setObjectName(u"lb_name_camera_2")
+        self.lb_name_camera_2.setMaximumSize(QSize(150, 16))
+        self.lb_name_camera_2.setStyleSheet(u"border: None;")
+
+        self.verticalLayout_13.addWidget(self.lb_name_camera_2)
+
+        self.lb_camera = QLabel(self.widget3)
+        self.lb_camera.setObjectName(u"lb_camera")
+        self.lb_camera.setMinimumSize(QSize(640, 360))
+        self.lb_camera.setMaximumSize(QSize(640, 360))
+        self.lb_camera.setStyleSheet(u"background-color: grey;\n"
+"border: None;\n"
+"")
+
+        self.verticalLayout_13.addWidget(self.lb_camera)
+
+        self.horizontalLayout_12 = QHBoxLayout()
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.btn_start_camera = QPushButton(self.widget3)
+        self.btn_start_camera.setObjectName(u"btn_start_camera")
+
+        self.horizontalLayout_12.addWidget(self.btn_start_camera)
+
+        self.btn_stop_camera = QPushButton(self.widget3)
+        self.btn_stop_camera.setObjectName(u"btn_stop_camera")
+
+        self.horizontalLayout_12.addWidget(self.btn_stop_camera)
+
+
+        self.verticalLayout_13.addLayout(self.horizontalLayout_12)
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1192, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1701, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -461,19 +549,19 @@ class Ui_MainWindow(object):
         self.btn_imu.setText(QCoreApplication.translate("MainWindow", u"IMU", None))
         self.cb_auto_gps.setText(QCoreApplication.translate("MainWindow", u"\u0410\u0432\u0442\u043e \u0437\u0430\u043f\u0440\u043e\u0441 GPS", None))
         self.cb_auto_imu.setText(QCoreApplication.translate("MainWindow", u"\u0410\u0432\u0442\u043e \u0437\u0430\u043f\u0440\u043e\u0441 IMU", None))
-        self.lb_connection.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0434\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435 \u043a\u043b\u0438\u0435\u043d\u0442\u0430", None))
+        self.lb_name_map_5.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0434\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435 \u043a\u043b\u0438\u0435\u043d\u0442\u0430", None))
         self.btn_server_start.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0434\u043a\u043b", None))
         self.btn_server_stop.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0442\u043a\u043b", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u043e\u0440 \u0440\u0435\u0436\u0438\u043c\u0430", None))
         self.btn_mnl_mode.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0443\u0447\u043d\u043e\u0439", None))
         self.btn_rmt_mode.setText(QCoreApplication.translate("MainWindow", u"\u0414\u0438\u0441\u0442\u0430\u043d\u0446\u0438\u043e\u043d\u043d\u044b\u0439", None))
         self.btn_auto_mode.setText(QCoreApplication.translate("MainWindow", u"\u0410\u0432\u0442\u043e\u043d\u043e\u043c\u043d\u044b\u0439", None))
-        self.lb_mtr_ctrl.setText(QCoreApplication.translate("MainWindow", u"\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u0435\u043c", None))
+        self.lb_mtr_ctrl.setText(QCoreApplication.translate("MainWindow", u"\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0414\u0412\u0421", None))
         self.btn_motor_start.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0442\u0430\u0440\u0442", None))
         self.btn_motor_stop.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0442\u043e\u043f", None))
-        self.lb_set_power.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u0434\u0430\u043d\u0438\u0435 \u043c\u043e\u0449\u043d\u043e\u0441\u0442\u0438", None))
+        self.lb_set_power.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u0434\u0430\u043d\u0438\u0435 \u043c\u043e\u0449\u043d\u043e\u0441\u0442\u0438 \u0414\u0412\u0421", None))
         self.le_pwr_mnl.setText("")
-        self.lb_info.setText(QCoreApplication.translate("MainWindow", u"\u0418\u043d\u0444\u043e", None))
+        self.lb_name_map_4.setText(QCoreApplication.translate("MainWindow", u"\u0418\u043d\u0444\u043e", None))
         self.lb_status.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0442\u0430\u0442\u0443\u0441", None))
         self.lb_status_val.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0435 \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0435\u043d", None))
         self.lb_rmode.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0435\u0436\u0438\u043c", None))
@@ -483,6 +571,7 @@ class Ui_MainWindow(object):
         self.btn_mnl_cmd.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u0422\u0435\u0440\u043c\u0438\u043d\u0430\u043b\u0430", None))
         self.btn_clean_textBrw.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u044c", None))
+        self.lb_name_map_2.setText(QCoreApplication.translate("MainWindow", u"GPS", None))
         self.lb_latitude.setText(QCoreApplication.translate("MainWindow", u"Latitide", None))
         self.lb_latitude_val.setText(QCoreApplication.translate("MainWindow", u"Latitide", None))
         self.lb_NS.setText(QCoreApplication.translate("MainWindow", u"NS", None))
@@ -495,12 +584,19 @@ class Ui_MainWindow(object):
         self.lb_altitude_val.setText(QCoreApplication.translate("MainWindow", u"Altitude", None))
         self.lb_grndspeed.setText(QCoreApplication.translate("MainWindow", u"GrndSpeed", None))
         self.lb_grndspeed_val.setText(QCoreApplication.translate("MainWindow", u"GrndSpeed", None))
-        self.btn_delete_points.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0442\u0435\u0440\u0435\u0442\u044c \u0442\u043e\u0447\u043a\u0438", None))
+        self.lb_name_map_3.setText(QCoreApplication.translate("MainWindow", u"IMU", None))
         self.lb_axl_x.setText(QCoreApplication.translate("MainWindow", u"AXL_x", None))
         self.lb_axl_x_val.setText(QCoreApplication.translate("MainWindow", u"AXL_x", None))
         self.lb_axl_y.setText(QCoreApplication.translate("MainWindow", u"AXL_y", None))
         self.lb_axl_y_val.setText(QCoreApplication.translate("MainWindow", u"AXL_y", None))
         self.lb_axl_z.setText(QCoreApplication.translate("MainWindow", u"AXL_z", None))
         self.lb_axl_z_val.setText(QCoreApplication.translate("MainWindow", u"AXL_z", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"\u041a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u044b \u0442\u043e\u0447\u0435\u043a", None))
+        self.btn_delete_points.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u044c \u0442\u043e\u0447\u043a\u0438", None))
+        self.lb_name_map.setText(QCoreApplication.translate("MainWindow", u"\u041a\u0430\u0440\u0442\u0430", None))
+        self.lb_name_camera_2.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0438\u0434\u0435\u043e\u043f\u043e\u0442\u043e\u043a \u0441 \u043a\u0430\u043c\u0435\u0440\u044b", None))
+        self.lb_camera.setText("")
+        self.btn_start_camera.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u043f\u0443\u0441\u0442\u0438\u0442\u044c", None))
+        self.btn_stop_camera.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c", None))
     # retranslateUi
 

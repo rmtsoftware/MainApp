@@ -1,5 +1,5 @@
 from PySide6.QtWebEngineCore import QWebEnginePage
-from src.map_estimator import Estimator
+from src.mapestimator import Estimator
 
 from datashower import DataShower
 
