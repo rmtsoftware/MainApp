@@ -1,4 +1,4 @@
-from telemetrygetter import TelemetryGetter
+from src.utils.telemetrygetter import TelemetryGetter
 from PySide6.QtWidgets import QApplication, QMessageBox
 from PySide6.QtCore import Qt, QTimer
 from enum import Enum

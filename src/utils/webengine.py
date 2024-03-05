@@ -1,7 +1,7 @@
 from PySide6.QtWebEngineCore import QWebEnginePage
-from src.mapestimator import Estimator
+from src.web.mapestimator import Estimator
 
-from datashower import DataShower
+from src.utils.datashower import DataShower
 
 from PySide6.QtWidgets import QApplication, QTableWidgetItem
 from PySide6.QtCore import QTimer
@@ -59,7 +59,7 @@ class WebEngineMap(DataShower):
         self.page = WebEnginePage()
 
         self.view.setPage(self.page)
-        self.view.setHtml(open("./src/index.html").read())
+        self.view.setHtml(open("src/web/index.html").read())
 
         # Получение координат точек каждые 1000мс
         self.timer = QTimer()

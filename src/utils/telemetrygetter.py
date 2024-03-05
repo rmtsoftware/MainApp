@@ -1,4 +1,4 @@
-from base import Base
+from src.utils.base import Base
 from PySide6.QtWidgets import QApplication
 from PySide6.QtCore import Qt, QTimer
 import sys

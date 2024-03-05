@@ -3,7 +3,7 @@ from PySide6.QtCore import QThreadPool, Slot, Signal
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
 
 # User-defined packages
-from server import ServerThread
+from src.server.server import ServerThread
 from mainwindow import Ui_MainWindow
 
 # System package

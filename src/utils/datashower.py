@@ -1,6 +1,6 @@
-from terminalwindow import TerminalWindow
-from PySide6.QtWidgets import QApplication, QMessageBox
-from PySide6.QtCore import Qt, QTimer, Slot
+from src.utils.terminalwindow import TerminalWindow
+from PySide6.QtWidgets import QApplication
+from PySide6.QtCore import Slot
 import sys
 
 
@@ -46,7 +46,6 @@ class DataShower(TerminalWindow):
         self.ui.lb_grndspeed_val.setText(str(GrndSpeed))
 
     def parse_msg_imu(self, data):
-        print(data)
         AXL_x = data[0]
         AXL_y = data[1]
         AXL_z = data[2]

@@ -1,5 +1,5 @@
-from manualcommandline import ManualCommandLine
-from modecontrol import ControlMode
+from src.utils.manualcommandline import ManualCommandLine
+from src.utils.modecontrol import ControlMode
 from PySide6.QtWidgets import QApplication
 from PySide6.QtCore import Qt
 import sys

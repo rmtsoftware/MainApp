@@ -1,4 +1,4 @@
-from manualkeyscontrol import ManualKeysControl
+from src.utils.manualkeyscontrol import ManualKeysControl
 from PySide6.QtWidgets import QApplication, QMessageBox
 from PySide6.QtCore import Qt, QTimer, Slot
 import sys

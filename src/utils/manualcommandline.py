@@ -1,4 +1,4 @@
-from powerlinecontrol import PowerLineController
+from src.utils.powerlinecontrol import PowerLineController
 from PySide6.QtWidgets import QApplication, QMessageBox
 from PySide6.QtCore import Qt, QTimer
 import sys

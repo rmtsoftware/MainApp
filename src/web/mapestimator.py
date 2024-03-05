@@ -6,7 +6,7 @@ class Estimator:
         self.__R = 6371.0 # Радиус Земли в километрах
 
 
-    def __deg2rad(self, point: dict) -> (float, float):
+    def __deg2rad(self, point: dict):
         """
             Преобразование грудусов в радианы\n
             Возвращает: широта[rad]: float , долгота[rad]: float

@@ -1,4 +1,4 @@
-from motorcontrol import MotorController
+from src.utils.motorcontrol import MotorController
 from PySide6.QtWidgets import QApplication, QMessageBox
 from PySide6.QtCore import Qt, QTimer
 import sys

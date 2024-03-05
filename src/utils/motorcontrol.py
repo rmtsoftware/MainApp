@@ -1,4 +1,4 @@
-from modecontrol import ModeController
+from src.utils.modecontrol import ModeController
 from PySide6.QtWidgets import QApplication
 import sys
 
