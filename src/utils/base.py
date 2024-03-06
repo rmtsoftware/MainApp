@@ -34,6 +34,12 @@ class Base(QMainWindow):  # renaming the class for more clarity
         self.ui.btn_server_start.clicked.connect(self.start_server)
         self.ui.btn_server_stop.clicked.connect(self.stop_server)
 
+        # ---> cameracontrol.py         
+        self.ui.btn_start_camera.clicked.connect(self._start_camera)
+        self.ui.btn_stop_camera.clicked.connect(self._stop_camera)
+        self.ui.btn_start_camera.setEnabled(True)
+        self.ui.btn_stop_camera.setEnabled(False)
+
         self.pool = QThreadPool.globalInstance()
         self.set_zero_values()
 
