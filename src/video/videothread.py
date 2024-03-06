@@ -15,8 +15,8 @@ class VideoThread(QThread):
         self._run_flag = True
 
     def run(self):
-        # capture from web cam
-        rtsp = os.getenv("RTSP")
+        # capture from web cam+
+        rtsp = os.getenv("RTSP_local")
         cap = cv2.VideoCapture(rtsp)
         while self._run_flag:
             ret, cv_img = cap.read()

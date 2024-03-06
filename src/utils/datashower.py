@@ -45,13 +45,13 @@ class DataShower(TerminalWindow):
         self.ui.lb_altitude_val.setText(str(Altitude))
         self.ui.lb_grndspeed_val.setText(str(GrndSpeed))
 
-    def parse_msg_imu(self, data):
-        AXL_x = data[0]
-        AXL_y = data[1]
-        AXL_z = data[2]
-        self.ui.lb_axl_x_val.setText(str(AXL_x))
-        self.ui.lb_axl_y_val.setText(str(AXL_y))
-        self.ui.lb_axl_z_val.setText(str(AXL_z))
+    def parse_msg_imu(self, data): ...
+        #AXL_x = data[0]
+        #AXL_y = data[1]
+        #AXL_z = data[2]
+        #self.ui.lb_axl_x_val.setText(str(AXL_x))
+        #self.ui.lb_axl_y_val.setText(str(AXL_y))
+        #self.ui.lb_axl_z_val.setText(str(AXL_z))
         
 
 if __name__ == "__main__":

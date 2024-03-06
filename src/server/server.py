@@ -31,7 +31,9 @@ class ServerThread(QRunnable):
         self.snd_msg = {'cmd': [], 'msg_data': {}}
 
         # self.HOST = "localhost"
-        self.HOST = os.getenv("SERVER_HOST")
+        # self.HOST = os.getenv("SERVER_HOST")
+        self.HOST = "192.168.31.58"
+        print(self.HOST)
 
         self.PORT = 12345
         self.conn = None
