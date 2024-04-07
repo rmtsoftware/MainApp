@@ -53,6 +53,9 @@ class Base(QMainWindow):  # renaming the class for more clarity
 
     # Renaming start and stop with more context
     def start_server(self):
+
+        print("Старт сервера")
+        
         self.server = ServerThread()
         self.pool.start(self.server)
 

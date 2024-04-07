@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 class ServerSignals(QObject):
     started = Signal()
     stoped = Signal()
@@ -30,14 +29,13 @@ class ServerThread(QRunnable):
         super().__init__()
         self.snd_msg = {'cmd': [], 'msg_data': {}}
 
-        # self.HOST = "localhost"
-        # self.HOST = os.getenv("SERVER_HOST")
-        self.HOST = "192.168.31.58"
-        print(self.HOST)
-
+        self.HOST = "192.168.0.124" # home
+        #self.HOST = "192.168.31.58"  # directly
+        #self.HOST = "10.0.6.78"     # vpn
         self.PORT = 12345
+        print(self.HOST, self.PORT)
+        
         self.conn = None
-        self.addr = None
         self.no_ro_resp_counts = 0
 
         self.signals = ServerSignals()
