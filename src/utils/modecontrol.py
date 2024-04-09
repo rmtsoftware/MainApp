@@ -23,7 +23,6 @@ class ModeController(TelemetryGetter):
         self.mode_timer.start(500)
 
         self.ui.btn_mnl_mode.clicked.connect(self.set_manual_mode)  # Кнопкка выбора ручного режима
-        self.ui.btn_auto_mode.clicked.connect(self.set_auto_mode)  # Кнопка выбора автономного режима управления
         self.ui.btn_rmt_mode.clicked.connect(self.set_remote_mode)  # Кнопка выбора дистанционного режима управления
 
     def _rmode(self):

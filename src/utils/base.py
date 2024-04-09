@@ -25,6 +25,9 @@ class Base(QMainWindow):  # renaming the class for more clarity
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+ 
+        self.setFixedSize(1140, 600)
+        self.setWindowTitle("Ground Control Station")
 
         # Setting Button Stats
         self.ui.btn_server_start.setDisabled(False)
@@ -54,12 +57,11 @@ class Base(QMainWindow):  # renaming the class for more clarity
     # Renaming start and stop with more context
     def start_server(self):
 
-        print("Старт сервера")
-        
         self.server = ServerThread()
+        print(f"Старт сервера: {self.server.HOST}:{self.server.PORT}")
         self.pool.start(self.server)
 
-        # signals from the thread
+        # Сигналы сервера
         self.server.signals.started.connect(self.server_started_actions)
         self.server.signals.connection_timeout.connect(self.timeout_actions)
         self.server.signals.data_received.connect(self._process_rcv_data)

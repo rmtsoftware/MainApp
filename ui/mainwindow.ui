@@ -6,36 +6,81 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1138</width>
-    <height>736</height>
+    <width>1140</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">color: black;</string>
+   <string notr="true">color: white;
+background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:0.193, y2:0.170727, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(44, 67, 150, 255));</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>100</y>
+      <x>490</x>
+      <y>4</y>
       <width>141</width>
-      <height>130</height>
+      <height>142</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLabel" name="lb_connection_2">
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    font-weight: bold; /* Делает текст жирным */
+	background-color: None;
+}
+
+</string>
+       </property>
        <property name="text">
         <string>Запрос телеметрии</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btn_gps">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>44</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px 10px; /* Уменьшенный вертикальный отступ для снижения высоты */
+    border-radius: 5px; /* Скругление углов */
+    min-width: 80px; /* Ширина кнопки */
+    max-height: 30px; /* Максимальная высота кнопки */
+}
+
+QPushButton:disabled {
+    background-color: #E0E0E0; /* Светло-серый фон для неактивной кнопки */
+    border: 2px solid #E0E0E0;
+    color: #BDBDBD; /* Более светлый серый текст для неактивной кнопки */
+}
+
+QPushButton:hover {
+    background-color: #BDBDBD; /* Чуть более светлый оттенок серого при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #757575; /* Темно-серый фон при нажатии */
+    border-style: inset; /* Стиль границы делает ее похожей на вдавленную */
+}
+</string>
+       </property>
        <property name="text">
         <string>GPS</string>
        </property>
@@ -43,6 +88,39 @@
      </item>
      <item>
       <widget class="QPushButton" name="btn_imu">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>44</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px 10px; /* Уменьшенный вертикальный отступ для снижения высоты */
+    border-radius: 5px; /* Скругление углов */
+    min-width: 80px; /* Ширина кнопки */
+    max-height: 30px; /* Максимальная высота кнопки */
+}
+
+QPushButton:disabled {
+    background-color: #E0E0E0; /* Светло-серый фон для неактивной кнопки */
+    border: 2px solid #E0E0E0;
+    color: #BDBDBD; /* Более светлый серый текст для неактивной кнопки */
+}
+
+QPushButton:hover {
+    background-color: #BDBDBD; /* Чуть более светлый оттенок серого при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #757575; /* Темно-серый фон при нажатии */
+    border-style: inset; /* Стиль границы делает ее похожей на вдавленную */
+}
+</string>
+       </property>
        <property name="text">
         <string>IMU</string>
        </property>
@@ -50,6 +128,20 @@
      </item>
      <item>
       <widget class="QCheckBox" name="cb_auto_gps">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+    font-weight: bold; /* Делает текст жирным */
+	background-color: None;
+
+
+</string>
+       </property>
        <property name="text">
         <string>Авто запрос GPS</string>
        </property>
@@ -57,6 +149,13 @@
      </item>
      <item>
       <widget class="QCheckBox" name="cb_auto_imu">
+       <property name="styleSheet">
+        <string notr="true">
+    font-weight: bold; /* Делает текст жирным */
+	background-color: None;
+
+</string>
+       </property>
        <property name="text">
         <string>Авто запрос IMU</string>
        </property>
@@ -67,40 +166,129 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>141</width>
-      <height>78</height>
+      <x>10</x>
+      <y>4</y>
+      <width>167</width>
+      <height>92</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QLabel" name="lb_name_map_5">
-       <property name="maximumSize">
-        <size>
-         <width>150</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border: None;</string>
-       </property>
-       <property name="text">
-        <string>Подключение клиента</string>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="lb_status">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    font-weight: bold; /* Делает текст жирным */
+	background-color: None;
+}
+
+</string>
+         </property>
+         <property name="text">
+          <string>Статус:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lb_status_val">
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    font-weight: bold; /* Делает текст жирным */
+	background-color: None;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Не подключен</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
       <widget class="QPushButton" name="btn_server_start">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>44</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px 10px; /* Уменьшенный вертикальный отступ для снижения высоты */
+    border-radius: 5px; /* Скругление углов */
+    min-width: 80px; /* Ширина кнопки */
+    max-height: 30px; /* Максимальная высота кнопки */
+}
+
+QPushButton:disabled {
+    background-color: #E0E0E0; /* Светло-серый фон для неактивной кнопки */
+    border: 2px solid #E0E0E0;
+    color: #BDBDBD; /* Более светлый серый текст для неактивной кнопки */
+}
+
+QPushButton:hover {
+    background-color: #BDBDBD; /* Чуть более светлый оттенок серого при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #757575; /* Темно-серый фон при нажатии */
+    border-style: inset; /* Стиль границы делает ее похожей на вдавленную */
+}
+</string>
+       </property>
        <property name="text">
-        <string>Подкл</string>
+        <string>Подключить</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btn_server_stop">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>44</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px 10px; /* Уменьшенный вертикальный отступ для снижения высоты */
+    border-radius: 5px; /* Скругление углов */
+    min-width: 80px; /* Ширина кнопки */
+    max-height: 30px; /* Максимальная высота кнопки */
+}
+
+QPushButton:disabled {
+    background-color: #E0E0E0; /* Светло-серый фон для неактивной кнопки */
+    border: 2px solid #E0E0E0;
+    color: #BDBDBD; /* Более светлый серый текст для неактивной кнопки */
+}
+
+QPushButton:hover {
+    background-color: #BDBDBD; /* Чуть более светлый оттенок серого при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #757575; /* Темно-серый фон при нажатии */
+    border-style: inset; /* Стиль границы делает ее похожей на вдавленную */
+}
+</string>
+       </property>
        <property name="text">
-        <string>Откл</string>
+        <string>Отключить</string>
        </property>
       </widget>
      </item>
@@ -110,16 +298,27 @@
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>100</y>
+      <y>4</y>
       <width>141</width>
-      <height>111</height>
+      <height>91</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
-      <widget class="QLabel" name="label_8">
+      <widget class="QLabel" name="lb_rmode_val">
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    font-weight: bold; /* Делает текст жирным */
+	background-color: None;
+}
+
+</string>
+       </property>
        <property name="text">
         <string>Выбор режима</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -127,12 +326,42 @@
       <widget class="QPushButton" name="btn_mnl_mode">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>104</width>
          <height>25</height>
         </size>
        </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>44</height>
+        </size>
+       </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">QPushButton {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px 10px; /* Уменьшенный вертикальный отступ для снижения высоты */
+    border-radius: 5px; /* Скругление углов */
+    min-width: 80px; /* Ширина кнопки */
+    max-height: 30px; /* Максимальная высота кнопки */
+}
+
+QPushButton:disabled {
+    background-color: #E0E0E0; /* Светло-серый фон для неактивной кнопки */
+    border: 2px solid #E0E0E0;
+    color: #BDBDBD; /* Более светлый серый текст для неактивной кнопки */
+}
+
+QPushButton:hover {
+    background-color: #BDBDBD; /* Чуть более светлый оттенок серого при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #757575; /* Темно-серый фон при нажатии */
+    border-style: inset; /* Стиль границы делает ее похожей на вдавленную */
+}
+</string>
        </property>
        <property name="text">
         <string>Ручной</string>
@@ -143,31 +372,45 @@
       <widget class="QPushButton" name="btn_rmt_mode">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>104</width>
          <height>25</height>
         </size>
        </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>44</height>
+        </size>
+       </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">QPushButton {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px 10px; /* Уменьшенный вертикальный отступ для снижения высоты */
+    border-radius: 5px; /* Скругление углов */
+    min-width: 80px; /* Ширина кнопки */
+    max-height: 30px; /* Максимальная высота кнопки */
+}
+
+QPushButton:disabled {
+    background-color: #E0E0E0; /* Светло-серый фон для неактивной кнопки */
+    border: 2px solid #E0E0E0;
+    color: #BDBDBD; /* Более светлый серый текст для неактивной кнопки */
+}
+
+QPushButton:hover {
+    background-color: #BDBDBD; /* Чуть более светлый оттенок серого при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #757575; /* Темно-серый фон при нажатии */
+    border-style: inset; /* Стиль границы делает ее похожей на вдавленную */
+}
+</string>
        </property>
        <property name="text">
         <string>Дистанционный</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_auto_mode">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>Автономный</string>
        </property>
       </widget>
      </item>
@@ -176,17 +419,27 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>240</y>
+      <x>340</x>
+      <y>4</y>
       <width>141</width>
-      <height>80</height>
+      <height>91</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
       <widget class="QLabel" name="lb_mtr_ctrl">
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    font-weight: bold; /* Делает текст жирным */
+	background-color: None;
+}
+</string>
+       </property>
        <property name="text">
         <string>Управление ДВС</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -194,12 +447,42 @@
       <widget class="QPushButton" name="btn_motor_start">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>104</width>
          <height>25</height>
         </size>
        </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>44</height>
+        </size>
+       </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">QPushButton {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px 10px; /* Уменьшенный вертикальный отступ для снижения высоты */
+    border-radius: 5px; /* Скругление углов */
+    min-width: 80px; /* Ширина кнопки */
+    max-height: 30px; /* Максимальная высота кнопки */
+}
+
+QPushButton:disabled {
+    background-color: #E0E0E0; /* Светло-серый фон для неактивной кнопки */
+    border: 2px solid #E0E0E0;
+    color: #BDBDBD; /* Более светлый серый текст для неактивной кнопки */
+}
+
+QPushButton:hover {
+    background-color: #BDBDBD; /* Чуть более светлый оттенок серого при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #757575; /* Темно-серый фон при нажатии */
+    border-style: inset; /* Стиль границы делает ее похожей на вдавленную */
+}
+</string>
        </property>
        <property name="text">
         <string>Старт</string>
@@ -210,12 +493,42 @@
       <widget class="QPushButton" name="btn_motor_stop">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>104</width>
          <height>25</height>
         </size>
        </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>44</height>
+        </size>
+       </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">QPushButton {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px 10px; /* Уменьшенный вертикальный отступ для снижения высоты */
+    border-radius: 5px; /* Скругление углов */
+    min-width: 80px; /* Ширина кнопки */
+    max-height: 30px; /* Максимальная высота кнопки */
+}
+
+QPushButton:disabled {
+    background-color: #E0E0E0; /* Светло-серый фон для неактивной кнопки */
+    border: 2px solid #E0E0E0;
+    color: #BDBDBD; /* Более светлый серый текст для неактивной кнопки */
+}
+
+QPushButton:hover {
+    background-color: #BDBDBD; /* Чуть более светлый оттенок серого при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #757575; /* Темно-серый фон при нажатии */
+    border-style: inset; /* Стиль границы делает ее похожей на вдавленную */
+}
+</string>
        </property>
        <property name="text">
         <string>Стоп</string>
@@ -224,662 +537,790 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QSlider" name="hs_pwr_mtr">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>330</y>
-      <width>142</width>
-      <height>49</height>
+      <x>10</x>
+      <y>110</y>
+      <width>271</width>
+      <height>20</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_5">
-     <item>
-      <widget class="QLabel" name="lb_set_power">
-       <property name="text">
-        <string>Задание мощности ДВС</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="le_pwr_mnl">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <property name="styleSheet">
+     <string notr="true">
+QSlider::groove:horizontal {
+    border: 1px solid #9E9E9E; /* Серая граница */
+    height: 8px; /* Высота трека */
+    background: #9E9E9E; /* Серый фон трека */
+    margin: 2px 0;
+}
+
+QSlider::handle:horizontal {
+    background: white; /* Белая ручка */
+    border: 2px solid #9E9E9E; /* Серая граница ручки */
+    width: 20px; /* Ширина ручки */
+    margin: -10px 0; /* Выступает за границы трека */
+    border-radius: 5px; /* Скругленные углы */
+}
+
+QSlider::handle:horizontal:hover {
+    background: #BDBDBD; /* Светло-серый фон ручки при наведении */
+}
+
+QSlider::handle:horizontal:pressed {
+    background: #757575; /* Темно-серый фон ручки при нажатии */
+}
+
+QSlider::add-page:horizontal {
+    background: #E0E0E0; /* Светло-серый фон правой части трека (или левой для RTL) */
+}
+
+QSlider::sub-page:horizontal {
+    background: #9E9E9E; /* Серый фон левой части трека (или правой для RTL) */
+}
+
+QSlider:disabled {
+    background: #E0E0E0; /* Светло-серый фон для неактивного состояния */
+}
+</string>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::NoTicks</enum>
+    </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QLabel" name="lb_pwr_mtr">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>10</y>
-      <width>141</width>
-      <height>81</height>
+      <x>290</x>
+      <y>104</y>
+      <width>41</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px; /* Отступы вокруг текста */
+    border-radius: 5px; /* Скругление углов */
+    font-weight: bold; /* Жирный текст */
+    text-align: center; /* Выравнивание текста по центру */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_pwr_reset">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>104</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>104</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>44</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px 10px; /* Уменьшенный вертикальный отступ для снижения высоты */
+    border-radius: 5px; /* Скругление углов */
+    min-width: 80px; /* Ширина кнопки */
+    max-height: 30px; /* Максимальная высота кнопки */
+}
+
+QPushButton:disabled {
+    background-color: #E0E0E0; /* Светло-серый фон для неактивной кнопки */
+    border: 2px solid #E0E0E0;
+    color: #BDBDBD; /* Более светлый серый текст для неактивной кнопки */
+}
+
+QPushButton:hover {
+    background-color: #BDBDBD; /* Чуть более светлый оттенок серого при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #757575; /* Темно-серый фон при нажатии */
+    border-style: inset; /* Стиль границы делает ее похожей на вдавленную */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Сброс</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="telemetry_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>28</y>
+      <width>491</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст, будет применяться к вложенным виджетам, поддерживающим свойство color */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    border-radius: 5px; /* Скругление углов */
+	font-weight: bold; /* Делает текст жирным */
+}
+</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_6">
      <item>
-      <widget class="QLabel" name="lb_name_map_4">
-       <property name="maximumSize">
-        <size>
-         <width>101</width>
-         <height>16</height>
-        </size>
-       </property>
+      <widget class="QLabel" name="label_9">
        <property name="styleSheet">
-        <string notr="true">border: None;</string>
-       </property>
-       <property name="text">
-        <string>Инфо</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QLabel" name="lb_status">
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string>Статус</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lb_status_val">
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string>Не подключен</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QLabel" name="lb_rmode">
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string>Режим</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lb_rmode_val">
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string>Не выбрано</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>220</y>
-      <width>141</width>
-      <height>80</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_7">
-     <item>
-      <widget class="QLabel" name="lb_man_cmd">
-       <property name="text">
-        <string>Ввод команды вручную</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="le_mnl_cmd">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_mnl_cmd">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>Отправить</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>420</y>
-      <width>461</width>
-      <height>271</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_8">
-     <item>
-      <widget class="QLabel" name="label_7">
-       <property name="text">
-        <string>Терминал</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QTextBrowser" name="terminal_window">
-       <property name="font">
-        <font>
-         <family>Segoe UI</family>
-         <pointsize>8</pointsize>
-         <italic>false</italic>
-         <bold>false</bold>
-         <kerning>true</kerning>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_clean_textBrw">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>Очистить</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>10</y>
-      <width>131</width>
-      <height>184</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_9">
-     <item>
-      <widget class="QLabel" name="lb_name_map_2">
-       <property name="maximumSize">
-        <size>
-         <width>101</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border: None;</string>
-       </property>
-       <property name="text">
-        <string>GPS</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <widget class="QLabel" name="lb_latitude">
-         <property name="minimumSize">
-          <size>
-           <width>58</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>58</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Latitide</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lb_latitude_val">
-         <property name="text">
-          <string>Latitide</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_4">
-       <item>
-        <widget class="QLabel" name="lb_NS">
-         <property name="minimumSize">
-          <size>
-           <width>58</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>58</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>NS</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lb_NS_val">
-         <property name="text">
-          <string>NS</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
-       <item>
-        <widget class="QLabel" name="lb_longitude">
-         <property name="minimumSize">
-          <size>
-           <width>58</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>58</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Longitude</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lb_longitude_val">
-         <property name="text">
-          <string>Longitude</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_6">
-       <item>
-        <widget class="QLabel" name="lb_EW">
-         <property name="minimumSize">
-          <size>
-           <width>58</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>58</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>EW</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lb_EW_val">
-         <property name="text">
-          <string>EW</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_7">
-       <item>
-        <widget class="QLabel" name="lb_altitude">
-         <property name="minimumSize">
-          <size>
-           <width>58</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>58</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Altitude</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lb_altitude_val">
-         <property name="text">
-          <string>Altitude</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_8">
-       <item>
-        <widget class="QLabel" name="lb_grndspeed">
-         <property name="minimumSize">
-          <size>
-           <width>58</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>58</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>GrndSpeed</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lb_grndspeed_val">
-         <property name="text">
-          <string>GrndSpeed</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>210</y>
-      <width>131</width>
-      <height>90</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_10">
-     <item>
-      <widget class="QLabel" name="lb_name_map_3">
-       <property name="maximumSize">
-        <size>
-         <width>101</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border: None;</string>
-       </property>
-       <property name="text">
-        <string>IMU</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_9">
-       <item>
-        <widget class="QLabel" name="lb_axl_x">
-         <property name="minimumSize">
-          <size>
-           <width>58</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>58</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Pitch</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lb_axl_x_val">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>AXL_x</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_10">
-       <item>
-        <widget class="QLabel" name="lb_axl_y">
-         <property name="minimumSize">
-          <size>
-           <width>58</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>58</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Roll</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lb_axl_y_val">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>AXL_y</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_11">
-       <item>
-        <widget class="QLabel" name="lb_axl_z">
-         <property name="minimumSize">
-          <size>
-           <width>58</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>58</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Yaw</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lb_axl_z_val">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>AXL_z</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>10</y>
-      <width>642</width>
-      <height>421</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_13">
-     <item>
-      <widget class="QLabel" name="lb_name_camera_2">
-       <property name="maximumSize">
-        <size>
-         <width>150</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border: None;</string>
-       </property>
-       <property name="text">
-        <string>Видеопоток с камеры</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="lb_camera">
-       <property name="minimumSize">
-        <size>
-         <width>640</width>
-         <height>360</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>640</width>
-         <height>360</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: grey;
-border: None;
+        <string notr="true">QLabel {
+    font-weight: bold; /* Делает текст жирным */
+	color: black;
+}
 </string>
        </property>
        <property name="text">
-        <string/>
+        <string>Телеметрия</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_12">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
-        <widget class="QPushButton" name="btn_start_camera">
-         <property name="text">
-          <string>Запустить</string>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="lb_latitude">
+             <property name="minimumSize">
+              <size>
+               <width>58</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Latitide</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lb_latitude_val">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Latitide</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QLabel" name="lb_longitude">
+             <property name="minimumSize">
+              <size>
+               <width>58</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>58</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Long</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lb_longitude_val">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Longitude</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <item>
+            <widget class="QLabel" name="lb_axl_x">
+             <property name="minimumSize">
+              <size>
+               <width>58</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>58</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Pitch</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lb_axl_x_val">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>AXL_x</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </item>
        <item>
-        <widget class="QPushButton" name="btn_stop_camera">
-         <property name="text">
-          <string>Остановить</string>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_13">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QLabel" name="lb_NS">
+             <property name="minimumSize">
+              <size>
+               <width>58</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>58</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>NS</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lb_NS_val">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>NS</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="lb_EW">
+             <property name="minimumSize">
+              <size>
+               <width>58</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>58</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>EW</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lb_EW_val">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>EW</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QLabel" name="lb_axl_y">
+             <property name="minimumSize">
+              <size>
+               <width>58</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>58</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Roll</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lb_axl_y_val">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>AXL_y</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_14">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <widget class="QLabel" name="lb_altitude">
+             <property name="minimumSize">
+              <size>
+               <width>58</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>58</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Altitude</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lb_altitude_val">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Altitude</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <widget class="QLabel" name="lb_grndspeed">
+             <property name="minimumSize">
+              <size>
+               <width>58</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>58</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>GSpeed</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lb_grndspeed_val">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>GrndSpeed</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QLabel" name="lb_axl_z">
+             <property name="minimumSize">
+              <size>
+               <width>58</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>58</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Yaw</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lb_axl_z_val">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>AXL_z</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="lb_name_camera_2">
+    <property name="geometry">
+     <rect>
+      <x>491</x>
+      <y>158</y>
+      <width>129</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>150</width>
+      <height>16</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    font-weight: bold; /* Делает текст жирным */
+	background-color: None;
+}
+
+border: None;</string>
+    </property>
+    <property name="text">
+     <string>Видеопоток с камеры</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb_camera">
+    <property name="geometry">
+     <rect>
+      <x>491</x>
+      <y>175</y>
+      <width>640</width>
+      <height>360</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>640</width>
+      <height>360</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>640</width>
+      <height>360</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: grey;
+border: None;
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="terminal_window">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>175</y>
+      <width>471</width>
+      <height>360</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>8</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: None;
+background-color: white;
+color: black;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_clean_textBrw">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>540</y>
+      <width>471</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>104</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px 10px; /* Уменьшенный вертикальный отступ для снижения высоты */
+    border-radius: 5px; /* Скругление углов */
+    min-width: 80px; /* Ширина кнопки */
+    max-height: 30px; /* Максимальная высота кнопки */
+}
+
+QPushButton:disabled {
+    background-color: #E0E0E0; /* Светло-серый фон для неактивной кнопки */
+    border: 2px solid #E0E0E0;
+    color: #BDBDBD; /* Более светлый серый текст для неактивной кнопки */
+}
+
+QPushButton:hover {
+    background-color: #BDBDBD; /* Чуть более светлый оттенок серого при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #757575; /* Темно-серый фон при нажатии */
+    border-style: inset; /* Стиль границы делает ее похожей на вдавленную */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Очистить</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>158</y>
+      <width>58</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    font-weight: bold; /* Делает текст жирным */
+	background-color: None;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Терминал</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_start_camera">
+    <property name="geometry">
+     <rect>
+      <x>491</x>
+      <y>541</y>
+      <width>316</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px 10px; /* Уменьшенный вертикальный отступ для снижения высоты */
+    border-radius: 5px; /* Скругление углов */
+    min-width: 80px; /* Ширина кнопки */
+    max-height: 30px; /* Максимальная высота кнопки */
+}
+
+QPushButton:disabled {
+    background-color: #E0E0E0; /* Светло-серый фон для неактивной кнопки */
+    border: 2px solid #E0E0E0;
+    color: #BDBDBD; /* Более светлый серый текст для неактивной кнопки */
+}
+
+QPushButton:hover {
+    background-color: #BDBDBD; /* Чуть более светлый оттенок серого при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #757575; /* Темно-серый фон при нажатии */
+    border-style: inset; /* Стиль границы делает ее похожей на вдавленную */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Запустить</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_stop_camera">
+    <property name="geometry">
+     <rect>
+      <x>815</x>
+      <y>540</y>
+      <width>316</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px 10px; /* Уменьшенный вертикальный отступ для снижения высоты */
+    border-radius: 5px; /* Скругление углов */
+    min-width: 80px; /* Ширина кнопки */
+    max-height: 30px; /* Максимальная высота кнопки */
+}
+
+QPushButton:disabled {
+    background-color: #E0E0E0; /* Светло-серый фон для неактивной кнопки */
+    border: 2px solid #E0E0E0;
+    color: #BDBDBD; /* Более светлый серый текст для неактивной кнопки */
+}
+
+QPushButton:hover {
+    background-color: #BDBDBD; /* Чуть более светлый оттенок серого при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #757575; /* Темно-серый фон при нажатии */
+    border-style: inset; /* Стиль границы делает ее похожей на вдавленную */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Остановить</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -887,7 +1328,7 @@ border: None;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1138</width>
+     <width>1140</width>
      <height>22</height>
     </rect>
    </property>

@@ -12,7 +12,7 @@ class CameraControl(DataShower):
     def __init__(self):
         super(CameraControl, self).__init__()
         # сделай фиксированный размер окна
-        self.setFixedSize(1138, 738)
+        
 
     def _start_camera(self):
         """Старт RTSP потока"""

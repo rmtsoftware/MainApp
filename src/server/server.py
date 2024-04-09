@@ -33,11 +33,6 @@ class ServerThread(QRunnable):
         self.HOST = "192.168.31.58"  # directly
         #self.HOST = "10.0.6.78"     # vpn
         self.PORT = 12345
-
-        #self.HOST = os.getenv("SERVER_HOST")
-        #self.PORT = int(os.getenv("PORT"))
-
-        print(self.HOST, self.PORT)
         
         self.conn = None
         self.no_ro_resp_counts = 0
