@@ -29,8 +29,9 @@ class ServerThread(QRunnable):
         super().__init__()
         self.snd_msg = {'cmd': [], 'msg_data': {}}
 
+        self.HOST = "localhost"
         #self.HOST = "192.168.0.124" # home
-        self.HOST = "192.168.31.58"  # directly
+        #self.HOST = "192.168.31.58"  # directly
         #self.HOST = "10.0.6.78"     # vpn
         self.PORT = 12345
         
@@ -146,6 +147,7 @@ class ServerThread(QRunnable):
     def _parse_data(self, raw_data):
         """Преобразование полученных данных"""
         """Transform received data"""
+        print(f'[INFO] - Raw data: {raw_data}')
         try:
             data = json.loads(raw_data)
         except json.JSONDecodeError as e:

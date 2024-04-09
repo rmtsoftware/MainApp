@@ -92,12 +92,12 @@ class Base(QMainWindow):  # renaming the class for more clarity
         self.ui.btn_server_start.setDisabled(False)
         self.ui.btn_server_stop.setDisabled(True)
 
-    @staticmethod
+
     def timeout_actions(self):
         QMessageBox.critical(None, "Ошибка", "Таймаут подключения",
                              QMessageBox.StandardButton.Ok)
 
-    @staticmethod
+
     def display_error(self):
         print('Сервер не запущен, чтобы его останавливать')
         QMessageBox.warning(None, ERROR_TITLE, ERROR_MESSAGE, WARNING_BUTTON)
