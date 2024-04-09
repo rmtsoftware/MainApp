@@ -42,14 +42,12 @@ class ServerThread(QRunnable):
 
         self.signals.get_gps.connect(self.get_gps)
         self.signals.get_imu.connect(self.get_imu)
-
         self.signals.set_mode.connect(self.set_mode)
-
         self.signals.mtr_cmd.connect(self.mtr_cmd)
-
         self.signals.man_commandline.connect(self.man_commandline)
-
         self.signals.man_key_control.connect(self.man_key_control)
+
+        self.signals.stoped.connect(self.stop_server)
 
     def exception_handler(func):
         def wrapper(*args, **kwargs):
@@ -57,19 +55,18 @@ class ServerThread(QRunnable):
             try:
                 func(*args, **kwargs)
             except TimeoutError as e:
-                print(e, end=': ')
-                print('[ERROR] - Таймаут ожидания подключения клиента к серверу\n')
+                print(f'[ERROR] - server.exception_handler: TimeoutError - {e}')
                 self.signals.connection_timeout.emit()
             except ConnectionAbortedError as e:
-                pass
+                print(f'[ERROR] - server.exception_handler: ConnectionAbortedError - {e}')
             except OSError as e:
-                pass
+                print(f'[ERROR] - server.exception_handler: OSError - {e}')
             except TypeError as e:
-                print(e)
+                print(f'[ERROR] - server.exception_handler: TypeError - {e}')
             except RuntimeError as e:
-                print(e)
-                print('[ERROR] - Перед закрытием приложения отключайте клиента (кнопка отключить)')
+                print(f'[ERROR] - server.exception_handler: RuntimeError - {e}')
             finally:
+                print('[INFO] - Остановка сервера...')
                 self.signals.stoped.emit()
             # ВОЗМОЖНОСТЬ МАСШТАБИРОВАТЬ
 
@@ -147,11 +144,10 @@ class ServerThread(QRunnable):
     def _parse_data(self, raw_data):
         """Преобразование полученных данных"""
         """Transform received data"""
-        print(f'[INFO] - Raw data: {raw_data}')
         try:
             data = json.loads(raw_data)
         except json.JSONDecodeError as e:
-            print(f'[ERROR] - Unable to parse the raw data: {e}')
+            print(f'[ERROR] - server._parse_data: json.JSONDecodeError - {e}')
             data = {}
         return data
 
@@ -160,3 +156,10 @@ class ServerThread(QRunnable):
         self.data_to_resp = json.dumps(self.snd_msg).encode()
         if conn is not None:  # Check if conn is not None before calling sendall
             conn.sendall(self.data_to_resp)
+
+    def stop_server(self):
+        if self.conn is not None:
+            self.conn.shutdown(0)
+            self.conn = None
+            self.addr = None
+        print('[INFO] - server.stop_server: Сервер остановлен')

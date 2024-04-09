@@ -58,7 +58,7 @@ class Base(QMainWindow):  # renaming the class for more clarity
     def start_server(self):
 
         self.server = ServerThread()
-        print(f"Старт сервера: {self.server.HOST}:{self.server.PORT}")
+        print(f"[INFO] - Запуск сервера: {self.server.HOST}:{self.server.PORT}")
         self.pool.start(self.server)
 
         # Сигналы сервера
