@@ -1,4 +1,4 @@
-from src.utils.webengine import WebEngineMap
+from src.utils.datashower import DataShower
 from src.video.videothread import VideoThread
 from PySide6.QtCore import Slot, Qt
 from PySide6 import QtWidgets, QtGui
@@ -7,10 +7,12 @@ import cv2
 import sys
 
 
-class CameraControl(WebEngineMap):
+class CameraControl(DataShower):
     
     def __init__(self):
         super(CameraControl, self).__init__()
+        # сделай фиксированный размер окна
+        self.setFixedSize(1138, 738)
 
     def _start_camera(self):
         """Старт RTSP потока"""

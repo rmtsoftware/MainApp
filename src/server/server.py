@@ -29,10 +29,14 @@ class ServerThread(QRunnable):
         super().__init__()
         self.snd_msg = {'cmd': [], 'msg_data': {}}
 
-        self.HOST = "192.168.0.124" # home
-        #self.HOST = "192.168.31.58"  # directly
+        #self.HOST = "192.168.0.124" # home
+        self.HOST = "192.168.31.58"  # directly
         #self.HOST = "10.0.6.78"     # vpn
         self.PORT = 12345
+
+        #self.HOST = os.getenv("SERVER_HOST")
+        #self.PORT = int(os.getenv("PORT"))
+
         print(self.HOST, self.PORT)
         
         self.conn = None
@@ -137,11 +141,12 @@ class ServerThread(QRunnable):
                 return raw_data
 
             else:
-                print(f'\n\t[WARNING] - Сервер не получил ответ {self.noRespCounts} раз')
-                self.no_ro_resp_counts += 1
-                if self.no_ro_resp_counts >= _CTIMEOUT:
-                    raise ConnectionError(
-                        f" [ERROR] - Нет ответа от клиента в течение {self.noRespCounts * _TIMEOUT} секунд!\n")
+                pass
+                #print(f'\n\t[WARNING] - Сервер не получил ответ {self.noRespCounts} раз')
+                #self.no_ro_resp_counts += 1
+                #if self.no_ro_resp_counts >= _CTIMEOUT:
+                #    raise ConnectionError(
+                #        f" [ERROR] - Нет ответа от клиента в течение {self.noRespCounts * _TIMEOUT} секунд!\n")
 
     def _parse_data(self, raw_data):
         """Преобразование полученных данных"""
