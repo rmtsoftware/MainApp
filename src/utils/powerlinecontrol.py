@@ -15,7 +15,6 @@ class PowerLineController(MotorController):
     def on_value_changed(self, value: int):
         self.pwr_mnl = value
         self.ui.lb_pwr_mtr.setText(str(value))
-        print(f"Power Manual: {self.pwr_mnl}")
 
     def reset_input_to_zero(self):
         self.ui.hs_pwr_mtr.setValue(0)

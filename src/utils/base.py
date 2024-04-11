@@ -114,6 +114,9 @@ class Base(QMainWindow):  # renaming the class for more clarity
                 self.telemetry_to_operator.emit(data["msg_data"]["GPSRESPONSE"])
             if "IMURESPONSE" in data["msg_data"]:
                 self.telemetry_to_operator.emit(data["msg_data"]["IMURESPONSE"])
+        if "status" in data and data["status"] == "REMOTE":
+            if "REMOTE_VERIFY" in data["msg_data"]:
+                self.telemetry_to_operator.emit(data["msg_data"]["REMOTE_VERIFY"])
 
     # ... Rest of the Class ...
 

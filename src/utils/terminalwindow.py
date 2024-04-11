@@ -23,6 +23,7 @@ class TerminalWindow(ManualKeysControl):
 
     def _clean_by_button(self):
         self.current_text = ''
+        self.ui.terminal_window.setText(self.current_text)
 
     def _add_to_terminal(self, message):
         self.current_text = f'{message}' + self.current_text

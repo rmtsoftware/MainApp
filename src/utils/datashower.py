@@ -20,12 +20,17 @@ class DataShower(TerminalWindow):
         if raw_data.startswith("D,s,1,1"):
             self.parse_msg_gps(data)
 
-        elif raw_data.startswith("D,s,1,3"):
+        # 'D,s,1,3,-0.134,0.248,176.790*88\r\n'
+        if raw_data.startswith("D,s,1,3"):
             self.parse_msg_imu(data)
 
-        raw_crc = splitted[-1:]
-        crc = int(raw_crc[0].split("*")[1])
-        # TODO: добавить вызов эстимейтора
+        if raw_data.startswith("D,s,5"):
+            self.parse_remote(data)
+
+
+        #raw_crc = splitted[-1:]
+        #crc = int(raw_crc[0].split("*")[1])
+        ## TODO: добавить вызов эстимейтора
 
     def parse_msg_gps(self, data):
         # "D,s,1,1,5520.0459,N,2047.5840,E,15.2,123752,38.000,48.000,*73"
@@ -46,12 +51,16 @@ class DataShower(TerminalWindow):
         self.ui.lb_grndspeed_val.setText(str(GrndSpeed))
 
     def parse_msg_imu(self, data): ...
+        # 'D,s,1,3,-0.134,0.248,176.790*88\r\n'
         #AXL_x = data[0]
         #AXL_y = data[1]
         #AXL_z = data[2]
         #self.ui.lb_axl_x_val.setText(str(AXL_x))
         #self.ui.lb_axl_y_val.setText(str(AXL_y))
         #self.ui.lb_axl_z_val.setText(str(AXL_z))
+
+    def parse_remote(self, data):
+        print(data)
         
 
 if __name__ == "__main__":

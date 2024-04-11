@@ -15,6 +15,7 @@ class TelemetryGetter(Base):
         self.auto_request_timer = QTimer()  # таймер автозапроса телеметрии
         self.auto_request_timer.timeout.connect(self.auto_request_telemetry)
         self.auto_request_timer.start(300)
+        self.telemetry_flag = 0
 
     def update_auto_state(self, telemetrytype):
         if self.ui.__dict__[f'cb_auto_{telemetrytype}'].checkState() == Qt.CheckState.Unchecked:
@@ -24,13 +25,37 @@ class TelemetryGetter(Base):
 
     def auto_request_telemetry(self):
         try:
+
             if self.server.conn is not None:
-                for telemetrytype in ['gps', 'imu']:
-                    if self._auto_state[telemetrytype] == 1:
-                        self.ui.__dict__[f'btn_{telemetrytype}'].setEnabled(False)
-                        self.request_telemetry(telemetrytype)
-                    elif self._auto_state[telemetrytype] == 0:
-                        self.ui.__dict__[f'btn_{telemetrytype}'].setEnabled(True)
+
+                if self._auto_state["gps"] == 1:
+                    self.ui.btn_gps.setEnabled(False)
+                else:
+                    self.ui.btn_gps.setEnabled(True)
+
+                if self._auto_state["imu"] == 1:
+                    self.ui.btn_imu.setEnabled(False)
+                else:
+                    self.ui.btn_imu.setEnabled(True)
+
+                if self.telemetry_flag == 0 and self._auto_state['gps'] and self._auto_state['imu']:
+                    self.server.signals.get_gps.emit()
+                    self.telemetry_flag += 1
+                    return
+                
+                if self.telemetry_flag == 1 and self._auto_state['imu'] and self._auto_state['gps']:
+                    self.server.signals.get_imu.emit()
+                    self.telemetry_flag -= 1
+                    return
+                
+                if self._auto_state['imu'] and not self._auto_state['gps']:
+                    self.server.signals.get_imu.emit()
+                    return
+                
+                if self._auto_state['gps'] and not self._auto_state['imu']:
+                    self.server.signals.get_gps.emit()
+                    return
+
         except AttributeError as _:
             pass
 
