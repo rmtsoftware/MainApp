@@ -114,7 +114,7 @@ class ServerThread(QRunnable):
 
                 while True:
                     raw_data = self._get_data(self.conn)
-                    data = self._parse_data(raw_data)
+                    data = self._convert_data_to_dict(raw_data)
                     self.signals.data_received.emit(data)
 
                     self._send_data(self.conn)
@@ -141,13 +141,13 @@ class ServerThread(QRunnable):
                 #    raise ConnectionError(
                 #        f" [ERROR] - Нет ответа от клиента в течение {self.noRespCounts * _TIMEOUT} секунд!\n")
 
-    def _parse_data(self, raw_data):
+    def _convert_data_to_dict(self, raw_data):
         """Преобразование полученных данных"""
         """Transform received data"""
         try:
             data = json.loads(raw_data)
         except json.JSONDecodeError as e:
-            print(f'[ERROR] - server._parse_data: json.JSONDecodeError - {e}')
+            print(f'[ERROR] - server_convert_data_to_dict: json.JSONDecodeError - {e}')
             data = {}
         return data
 

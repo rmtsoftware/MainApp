@@ -118,8 +118,6 @@ class Base(QMainWindow):  # renaming the class for more clarity
             if "REMOTE_VERIFY" in data["msg_data"]:
                 self.telemetry_to_operator.emit(data["msg_data"]["REMOTE_VERIFY"])
 
-    # ... Rest of the Class ...
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
