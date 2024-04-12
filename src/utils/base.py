@@ -108,14 +108,22 @@ class Base(QMainWindow):  # renaming the class for more clarity
 
     @Slot(object)
     def _process_rcv_data(self, data):
+
         self.msg_to_terminal.emit(data, "RCVD")
+
         if "status" in data and data["status"] == "RESPONSE":
+
             if "GPSRESPONSE" in data["msg_data"]:
+                print(data["msg_data"]["GPSRESPONSE"])
                 self.telemetry_to_operator.emit(data["msg_data"]["GPSRESPONSE"])
+
             if "IMURESPONSE" in data["msg_data"]:
+                print(data["msg_data"]["IMURESPONSE"])
                 self.telemetry_to_operator.emit(data["msg_data"]["IMURESPONSE"])
+
         if "status" in data and data["status"] == "REMOTE":
             if "REMOTE_VERIFY" in data["msg_data"]:
+                print(data["msg_data"]["REMOTE_VERIFY"])
                 self.telemetry_to_operator.emit(data["msg_data"]["REMOTE_VERIFY"])
 
 

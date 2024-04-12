@@ -38,9 +38,12 @@ class DataShower():
     def parse(self, raw_data: str):
         splitted = raw_data.split('*')
 
+        print(splitted)
+
         # Example data:
         #   GPS:    'D,s,1,1,5520.0459,N,2047.5840,E,15.2,123752,38.000,48.000,'
         #   IMU:    'D,s,1,3,-0.134,0.248,176.790'
+        #           'D,s,1,3,0.155,-0.501,-12.101*'
         #   REMOTE: 'D,s,5,RC,'
 
         if splitted[0].startswith("D,s,1,1"):
@@ -53,10 +56,10 @@ class DataShower():
             self.parse_remote()
         
 
-    def parse_msg_gps(self, data: str):
+    def parse_msg_gps(self, data):
         try:
             data = data[8:-1].split(',')
-
+            
             # 0 Latitude   5520.0459
             # 1 NS         N
             # 2 Longitude  2047.5840
@@ -114,22 +117,25 @@ class DataShower():
         print(get_current_time(), ": REMOTE")
 
 
-Data = {'gps': ['D,s,1,1,5520.0459,N,2047.5840,E,15.2,123752,38.000,48.000,*73'],
-        'imu': ['D,s,1,3,-0.134,0.248,176.790*88'],
+Data = {'gps': ['D,s,1,1,0.0000,N,0.0000,E,0.0,075607,0.000,0.000,*121\r\n'],
+        'imu': ['D,s,1,3,-0.130,-0.421,-13.144*104\r\n'],
         'rmt': ['D,s,5,RC,*,']}
 
 
 if __name__ == "__main__":
 
-    for el in generate_gps_messages(30):
-        Data['gps'].append(el)
+    #for el in generate_gps_messages(30):
+    #    Data['gps'].append(el)
 
-    for el in generate_imu_messages(30):
-        Data['imu'].append(el)
+    #for el in generate_imu_messages(30):
+    #    Data['imu'].append(el)
+    print(Data)
 
     data_shower = DataShower()
+
     for key in Data:
-        for i in range(1, len(Data[key])):
+
+        for i in range(0, len(Data[key])):
             data_shower.parse(raw_data=Data[key][i])
             print('\n')
 

@@ -12,55 +12,78 @@ class DataShower(TerminalWindow):
     @Slot(object)
     def parse(self, raw_data: str):
         
-        print(raw_data)
+        splitted = raw_data.split('*')
+        print(splitted)
 
-        splitted = raw_data.split(',')
-        data = splitted[4:-1]
+        if splitted[0].startswith("D,s,1,1"):
+            self.parse_msg_gps(splitted[0])
 
-        if raw_data.startswith("D,s,1,1"):
-            self.parse_msg_gps(data)
+        if splitted[0].startswith("D,s,1,3"):
+            self.parse_msg_imu(splitted[0])
 
-        # 'D,s,1,3,-0.134,0.248,176.790*88\r\n'
-        if raw_data.startswith("D,s,1,3"):
-            self.parse_msg_imu(data)
-
-        if raw_data.startswith("D,s,5"):
-            self.parse_remote(data)
-
-
-        #raw_crc = splitted[-1:]
-        #crc = int(raw_crc[0].split("*")[1])
-        ## TODO: добавить вызов эстимейтора
+        if splitted[0].startswith("D,s,5"):
+            self.parse_remote()
 
     def parse_msg_gps(self, data):
-        # "D,s,1,1,5520.0459,N,2047.5840,E,15.2,123752,38.000,48.000,*73"
-        Latitude = float(data[0])
-        NS: str = data[1]
-        Longitude = float(data[2])
-        EW = data[3]
-        Altitude = float(data[4])
-        _ = int(data[5])  # TODO: получить акту
-        _ = float(data[6])
-        GrndSpeed = float(data[7])
+        try:
+            data = data[8:-1].split(',')
 
-        self.ui.lb_latitude_val.setText(str(Latitude))
-        self.ui.lb_NS_val.setText(str(NS))
-        self.ui.lb_longitude_val.setText(str(Longitude))
-        self.ui.lb_EW_val.setText(str(EW))
-        self.ui.lb_altitude_val.setText(str(Altitude))
-        self.ui.lb_grndspeed_val.setText(str(GrndSpeed))
+            Latitude = data[0]
+            NS = data[1]
+            Longitude = data[2]
+            EW = data[3]
+            Altitude = data[4]
+            GrndSpeed = data[7]
 
-    def parse_msg_imu(self, data): ...
-        # 'D,s,1,3,-0.134,0.248,176.790*88\r\n'
-        #AXL_x = data[0]
-        #AXL_y = data[1]
-        #AXL_z = data[2]
-        #self.ui.lb_axl_x_val.setText(str(AXL_x))
-        #self.ui.lb_axl_y_val.setText(str(AXL_y))
-        #self.ui.lb_axl_z_val.setText(str(AXL_z))
+            self.ui.lb_latitude_val.setText(Latitude)
+            self.ui.lb_NS_val.setText(NS)
+            self.ui.lb_longitude_val.setText(Longitude)
+            self.ui.lb_EW_val.setText(EW)
+            self.ui.lb_altitude_val.setText(Altitude)
+            self.ui.lb_grndspeed_val.setText(GrndSpeed)
 
-    def parse_remote(self, data):
-        print(data)
+            with open("./gps_data.txt", "a") as file:
+                file.write(f"{self.get_current_time()}, {' '.join(data)}\n")
+
+        except Exception as e:
+            print(f"[ERROR]: DataShower.parse_msg_gps : {e}")
+
+
+    def parse_msg_imu(self, data):
+        try:
+            data = data[8:-1].split(',')
+    
+            # 0 AXL_x -0.134
+            # 1 AXL_y 0.248
+            # 2 AXL_z 176.790
+
+            AXL_x = data[0]
+            AXL_y = data[1]
+            AXL_z = data[2]
+
+            print(self.get_current_time(), ": IMU")
+            print(f'AXL_x:\t{AXL_x}')
+            print(f'AXL_y:\t{AXL_y}')
+            print(f'AXL_z:\t{AXL_z}')
+
+            self.ui.lb_axl_x_val.setText(AXL_x)
+            self.ui.lb_axl_y_val.setText(AXL_y)
+            self.ui.lb_axl_z_val.setText(AXL_z)
+
+            with open("./imu_data.txt", "a") as file:
+                file.write(f"{self.get_current_time()}, {' '.join(data)}\n")
+
+        except Exception as e:
+            print(f"[ERROR]: DataShower.parse_msg_imu : {e}")
+
+    def parse_remote(self):
+        print(self.get_current_time(), ": REMOTE")
+
+
+    def get_current_time(self):
+        import datetime
+        now = datetime.datetime.now()
+        return now.strftime("%Y-%m-%d %H:%M:%S:%f")[:-3]
         
 
 if __name__ == "__main__":

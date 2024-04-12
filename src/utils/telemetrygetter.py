@@ -14,7 +14,7 @@ class TelemetryGetter(Base):
         self.ui.cb_auto_imu.stateChanged.connect(lambda _: self.update_auto_state('imu'))
         self.auto_request_timer = QTimer()  # таймер автозапроса телеметрии
         self.auto_request_timer.timeout.connect(self.auto_request_telemetry)
-        self.auto_request_timer.start(300)
+        self.auto_request_timer.start(1000)
         self.telemetry_flag = 0
 
     def update_auto_state(self, telemetrytype):
