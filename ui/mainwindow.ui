@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1140</width>
-    <height>600</height>
+    <width>1239</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -689,8 +689,8 @@ QPushButton:pressed {
    <widget class="QWidget" name="telemetry_widget" native="true">
     <property name="geometry">
      <rect>
-      <x>640</x>
-      <y>28</y>
+      <x>690</x>
+      <y>20</y>
       <width>491</width>
       <height>121</height>
      </rect>
@@ -1086,7 +1086,7 @@ QPushButton:pressed {
    <widget class="QLabel" name="lb_name_camera_2">
     <property name="geometry">
      <rect>
-      <x>491</x>
+      <x>6</x>
       <y>158</y>
       <width>129</width>
       <height>16</height>
@@ -1113,7 +1113,7 @@ border: None;</string>
    <widget class="QLabel" name="lb_camera">
     <property name="geometry">
      <rect>
-      <x>491</x>
+      <x>6</x>
       <y>175</y>
       <width>640</width>
       <height>360</height>
@@ -1143,10 +1143,10 @@ border: None;
    <widget class="QTextBrowser" name="terminal_window">
     <property name="geometry">
      <rect>
-      <x>11</x>
-      <y>175</y>
-      <width>471</width>
-      <height>360</height>
+      <x>6</x>
+      <y>575</y>
+      <width>640</width>
+      <height>187</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -1179,9 +1179,9 @@ color: black;</string>
    <widget class="QPushButton" name="btn_clean_textBrw">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>540</y>
-      <width>471</width>
+      <x>315</x>
+      <y>714</y>
+      <width>331</width>
       <height>30</height>
      </rect>
     </property>
@@ -1222,30 +1222,10 @@ QPushButton:pressed {
      <string>Очистить</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>158</y>
-      <width>58</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLabel {
-    font-weight: bold; /* Делает текст жирным */
-	background-color: None;
-}
-</string>
-    </property>
-    <property name="text">
-     <string>Терминал</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btn_start_camera">
     <property name="geometry">
      <rect>
-      <x>491</x>
+      <x>6</x>
       <y>541</y>
       <width>316</width>
       <height>30</height>
@@ -1285,7 +1265,7 @@ QPushButton:pressed {
    <widget class="QPushButton" name="btn_stop_camera">
     <property name="geometry">
      <rect>
-      <x>815</x>
+      <x>330</x>
       <y>540</y>
       <width>316</width>
       <height>30</height>
@@ -1322,19 +1302,123 @@ QPushButton:pressed {
      <string>Остановить</string>
     </property>
    </widget>
+   <widget class="QWebEngineView" name="webEngineView">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>175</y>
+      <width>581</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <property name="url">
+     <url>
+      <string>about:blank</string>
+     </url>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="table_points">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>575</y>
+      <width>581</width>
+      <height>187</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: None;
+background-color: white;
+color: black;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_delete_points">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>540</y>
+      <width>581</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #9E9E9E; /* Серый фон */
+    color: white; /* Белый текст */
+    border: 2px solid #9E9E9E; /* Серая граница */
+    padding: 5px 10px; /* Уменьшенный вертикальный отступ для снижения высоты */
+    border-radius: 5px; /* Скругление углов */
+    min-width: 80px; /* Ширина кнопки */
+    max-height: 30px; /* Максимальная высота кнопки */
+}
+
+QPushButton:disabled {
+    background-color: #E0E0E0; /* Светло-серый фон для неактивной кнопки */
+    border: 2px solid #E0E0E0;
+    color: #BDBDBD; /* Более светлый серый текст для неактивной кнопки */
+}
+
+QPushButton:hover {
+    background-color: #BDBDBD; /* Чуть более светлый оттенок серого при наведении */
+}
+
+QPushButton:pressed {
+    background-color: #757575; /* Темно-серый фон при нажатии */
+    border-style: inset; /* Стиль границы делает ее похожей на вдавленную */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Очистить точки</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb_name_camera_3">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>158</y>
+      <width>129</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>150</width>
+      <height>16</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    font-weight: bold; /* Делает текст жирным */
+	background-color: None;
+}
+
+border: None;</string>
+    </property>
+    <property name="text">
+     <string>Карта</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1140</width>
+     <width>1239</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header location="global">QtWebEngineWidgets/QWebEngineView</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

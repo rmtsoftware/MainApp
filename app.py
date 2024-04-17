@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QApplication
-from src.utils.cameracontrol import CameraControl
+from src.utils.autonmoving import AutonomMoving
 import sys
 from dotenv import load_dotenv
 
@@ -8,7 +8,7 @@ load_dotenv()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = CameraControl()
+    window = AutonomMoving()
     window.show()
     app.exec()
     

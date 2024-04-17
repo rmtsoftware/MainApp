@@ -1,4 +1,4 @@
-from src.utils.datashower import DataShower
+from src.utils.webengine import WebEngineMap
 from src.video.videothread import VideoThread
 from PySide6.QtCore import Slot, Qt
 from PySide6 import QtWidgets, QtGui
@@ -7,11 +7,10 @@ import cv2
 import sys
 
 
-class CameraControl(DataShower):
+class CameraControl(WebEngineMap):
     
     def __init__(self):
         super(CameraControl, self).__init__()
-        # сделай фиксированный размер окна
         
 
     def _start_camera(self):

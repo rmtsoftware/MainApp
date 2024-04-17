@@ -15,16 +15,17 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QHBoxLayout, QLabel,
-    QMainWindow, QMenuBar, QPushButton, QSizePolicy,
-    QSlider, QStatusBar, QTextBrowser, QVBoxLayout,
-    QWidget)
+from PySide6.QtWebEngineWidgets import QWebEngineView
+from PySide6.QtWidgets import (QApplication, QCheckBox, QHBoxLayout, QHeaderView,
+    QLabel, QMainWindow, QMenuBar, QPushButton,
+    QSizePolicy, QSlider, QStatusBar, QTableWidget,
+    QTableWidgetItem, QTextBrowser, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1140, 600)
+        MainWindow.resize(1239, 768)
         MainWindow.setStyleSheet(u"color: white;\n"
 "background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:0.193, y2:0.170727, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(44, 67, 150, 255));")
         self.centralwidget = QWidget(MainWindow)
@@ -499,7 +500,7 @@ class Ui_MainWindow(object):
 "")
         self.telemetry_widget = QWidget(self.centralwidget)
         self.telemetry_widget.setObjectName(u"telemetry_widget")
-        self.telemetry_widget.setGeometry(QRect(640, 28, 491, 121))
+        self.telemetry_widget.setGeometry(QRect(690, 20, 491, 121))
         self.telemetry_widget.setStyleSheet(u"QWidget {\n"
 "    background-color: #9E9E9E; /* \u0421\u0435\u0440\u044b\u0439 \u0444\u043e\u043d */\n"
 "    color: white; /* \u0411\u0435\u043b\u044b\u0439 \u0442\u0435\u043a\u0441\u0442, \u0431\u0443\u0434\u0435\u0442 \u043f\u0440\u0438\u043c\u0435\u043d\u044f\u0442\u044c\u0441\u044f \u043a \u0432\u043b\u043e\u0436\u0435\u043d\u043d\u044b\u043c \u0432\u0438\u0434\u0436\u0435\u0442\u0430\u043c, \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u044e\u0449\u0438\u043c \u0441\u0432\u043e\u0439\u0441\u0442\u0432\u043e color */\n"
@@ -708,7 +709,7 @@ class Ui_MainWindow(object):
 
         self.lb_name_camera_2 = QLabel(self.centralwidget)
         self.lb_name_camera_2.setObjectName(u"lb_name_camera_2")
-        self.lb_name_camera_2.setGeometry(QRect(491, 158, 129, 16))
+        self.lb_name_camera_2.setGeometry(QRect(6, 158, 129, 16))
         self.lb_name_camera_2.setMaximumSize(QSize(150, 16))
         self.lb_name_camera_2.setStyleSheet(u"QLabel {\n"
 "    font-weight: bold; /* \u0414\u0435\u043b\u0430\u0435\u0442 \u0442\u0435\u043a\u0441\u0442 \u0436\u0438\u0440\u043d\u044b\u043c */\n"
@@ -718,7 +719,7 @@ class Ui_MainWindow(object):
 "border: None;")
         self.lb_camera = QLabel(self.centralwidget)
         self.lb_camera.setObjectName(u"lb_camera")
-        self.lb_camera.setGeometry(QRect(491, 175, 640, 360))
+        self.lb_camera.setGeometry(QRect(6, 175, 640, 360))
         self.lb_camera.setMinimumSize(QSize(640, 360))
         self.lb_camera.setMaximumSize(QSize(640, 360))
         self.lb_camera.setStyleSheet(u"background-color: grey;\n"
@@ -726,7 +727,7 @@ class Ui_MainWindow(object):
 "")
         self.terminal_window = QTextBrowser(self.centralwidget)
         self.terminal_window.setObjectName(u"terminal_window")
-        self.terminal_window.setGeometry(QRect(11, 175, 471, 360))
+        self.terminal_window.setGeometry(QRect(6, 575, 640, 187))
         self.terminal_window.setMinimumSize(QSize(0, 0))
         self.terminal_window.setMaximumSize(QSize(16777215, 16777215))
         font = QFont()
@@ -741,7 +742,7 @@ class Ui_MainWindow(object):
 "color: black;")
         self.btn_clean_textBrw = QPushButton(self.centralwidget)
         self.btn_clean_textBrw.setObjectName(u"btn_clean_textBrw")
-        self.btn_clean_textBrw.setGeometry(QRect(10, 540, 471, 30))
+        self.btn_clean_textBrw.setGeometry(QRect(315, 714, 331, 30))
         self.btn_clean_textBrw.setMinimumSize(QSize(104, 25))
         self.btn_clean_textBrw.setStyleSheet(u"QPushButton {\n"
 "    background-color: #9E9E9E; /* \u0421\u0435\u0440\u044b\u0439 \u0444\u043e\u043d */\n"
@@ -770,17 +771,9 @@ class Ui_MainWindow(object):
 "    border-style: inset; /* \u0421\u0442\u0438\u043b\u044c \u0433\u0440\u0430\u043d\u0438\u0446\u044b \u0434\u0435\u043b\u0430\u0435\u0442 \u0435\u0435 \u043f\u043e\u0445\u043e\u0436\u0435\u0439 \u043d\u0430 \u0432\u0434\u0430\u0432\u043b\u0435\u043d\u043d\u0443\u044e */\n"
 "}\n"
 "")
-        self.label_7 = QLabel(self.centralwidget)
-        self.label_7.setObjectName(u"label_7")
-        self.label_7.setGeometry(QRect(10, 158, 58, 16))
-        self.label_7.setStyleSheet(u"QLabel {\n"
-"    font-weight: bold; /* \u0414\u0435\u043b\u0430\u0435\u0442 \u0442\u0435\u043a\u0441\u0442 \u0436\u0438\u0440\u043d\u044b\u043c */\n"
-"	background-color: None;\n"
-"}\n"
-"")
         self.btn_start_camera = QPushButton(self.centralwidget)
         self.btn_start_camera.setObjectName(u"btn_start_camera")
-        self.btn_start_camera.setGeometry(QRect(491, 541, 316, 30))
+        self.btn_start_camera.setGeometry(QRect(6, 541, 316, 30))
         self.btn_start_camera.setStyleSheet(u"QPushButton {\n"
 "    background-color: #9E9E9E; /* \u0421\u0435\u0440\u044b\u0439 \u0444\u043e\u043d */\n"
 "    color: white; /* \u0411\u0435\u043b\u044b\u0439 \u0442\u0435\u043a\u0441\u0442 */\n"
@@ -810,7 +803,7 @@ class Ui_MainWindow(object):
 "")
         self.btn_stop_camera = QPushButton(self.centralwidget)
         self.btn_stop_camera.setObjectName(u"btn_stop_camera")
-        self.btn_stop_camera.setGeometry(QRect(815, 540, 316, 30))
+        self.btn_stop_camera.setGeometry(QRect(330, 540, 316, 30))
         self.btn_stop_camera.setStyleSheet(u"QPushButton {\n"
 "    background-color: #9E9E9E; /* \u0421\u0435\u0440\u044b\u0439 \u0444\u043e\u043d */\n"
 "    color: white; /* \u0411\u0435\u043b\u044b\u0439 \u0442\u0435\u043a\u0441\u0442 */\n"
@@ -838,10 +831,60 @@ class Ui_MainWindow(object):
 "    border-style: inset; /* \u0421\u0442\u0438\u043b\u044c \u0433\u0440\u0430\u043d\u0438\u0446\u044b \u0434\u0435\u043b\u0430\u0435\u0442 \u0435\u0435 \u043f\u043e\u0445\u043e\u0436\u0435\u0439 \u043d\u0430 \u0432\u0434\u0430\u0432\u043b\u0435\u043d\u043d\u0443\u044e */\n"
 "}\n"
 "")
+        self.webEngineView = QWebEngineView(self.centralwidget)
+        self.webEngineView.setObjectName(u"webEngineView")
+        self.webEngineView.setGeometry(QRect(650, 175, 581, 361))
+        self.webEngineView.setUrl(QUrl(u"about:blank"))
+        self.table_points = QTableWidget(self.centralwidget)
+        self.table_points.setObjectName(u"table_points")
+        self.table_points.setGeometry(QRect(650, 575, 581, 187))
+        self.table_points.setStyleSheet(u"border: None;\n"
+"background-color: white;\n"
+"color: black;")
+        self.btn_delete_points = QPushButton(self.centralwidget)
+        self.btn_delete_points.setObjectName(u"btn_delete_points")
+        self.btn_delete_points.setGeometry(QRect(650, 540, 581, 31))
+        self.btn_delete_points.setStyleSheet(u"QPushButton {\n"
+"    background-color: #9E9E9E; /* \u0421\u0435\u0440\u044b\u0439 \u0444\u043e\u043d */\n"
+"    color: white; /* \u0411\u0435\u043b\u044b\u0439 \u0442\u0435\u043a\u0441\u0442 */\n"
+"    border: 2px solid #9E9E9E; /* \u0421\u0435\u0440\u0430\u044f \u0433\u0440\u0430\u043d\u0438\u0446\u0430 */\n"
+"    padding: 5px 10px; /* \u0423\u043c\u0435\u043d\u044c\u0448\u0435\u043d\u043d\u044b\u0439 \u0432\u0435\u0440\u0442\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439 \u043e\u0442\u0441\u0442\u0443\u043f \u0434\u043b\u044f \u0441\u043d\u0438\u0436\u0435\u043d\u0438\u044f \u0432\u044b\u0441\u043e\u0442\u044b */\n"
+"    border-radius: 5px; /* \u0421\u043a\u0440\u0443\u0433\u043b\u0435\u043d\u0438\u0435 \u0443\u0433\u043b\u043e\u0432 */\n"
+"    min-width: 80px; /* \u0428\u0438\u0440\u0438\u043d\u0430 \u043a\u043d\u043e\u043f\u043a\u0438 */\n"
+"    max-height: 30px; /* \u041c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0432\u044b\u0441\u043e\u0442\u0430 \u043a\u043d\u043e\u043f\u043a"
+                        "\u0438 */\n"
+"}\n"
+"\n"
+"QPushButton:disabled {\n"
+"    background-color: #E0E0E0; /* \u0421\u0432\u0435\u0442\u043b\u043e-\u0441\u0435\u0440\u044b\u0439 \u0444\u043e\u043d \u0434\u043b\u044f \u043d\u0435\u0430\u043a\u0442\u0438\u0432\u043d\u043e\u0439 \u043a\u043d\u043e\u043f\u043a\u0438 */\n"
+"    border: 2px solid #E0E0E0;\n"
+"    color: #BDBDBD; /* \u0411\u043e\u043b\u0435\u0435 \u0441\u0432\u0435\u0442\u043b\u044b\u0439 \u0441\u0435\u0440\u044b\u0439 \u0442\u0435\u043a\u0441\u0442 \u0434\u043b\u044f \u043d\u0435\u0430\u043a\u0442\u0438\u0432\u043d\u043e\u0439 \u043a\u043d\u043e\u043f\u043a\u0438 */\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #BDBDBD; /* \u0427\u0443\u0442\u044c \u0431\u043e\u043b\u0435\u0435 \u0441\u0432\u0435\u0442\u043b\u044b\u0439 \u043e\u0442\u0442\u0435\u043d\u043e\u043a \u0441\u0435\u0440\u043e\u0433\u043e \u043f\u0440\u0438 \u043d\u0430\u0432\u0435\u0434\u0435\u043d\u0438\u0438 */\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #757575; /* \u0422\u0435"
+                        "\u043c\u043d\u043e-\u0441\u0435\u0440\u044b\u0439 \u0444\u043e\u043d \u043f\u0440\u0438 \u043d\u0430\u0436\u0430\u0442\u0438\u0438 */\n"
+"    border-style: inset; /* \u0421\u0442\u0438\u043b\u044c \u0433\u0440\u0430\u043d\u0438\u0446\u044b \u0434\u0435\u043b\u0430\u0435\u0442 \u0435\u0435 \u043f\u043e\u0445\u043e\u0436\u0435\u0439 \u043d\u0430 \u0432\u0434\u0430\u0432\u043b\u0435\u043d\u043d\u0443\u044e */\n"
+"}\n"
+"")
+        self.lb_name_camera_3 = QLabel(self.centralwidget)
+        self.lb_name_camera_3.setObjectName(u"lb_name_camera_3")
+        self.lb_name_camera_3.setGeometry(QRect(650, 158, 129, 16))
+        self.lb_name_camera_3.setMaximumSize(QSize(150, 16))
+        self.lb_name_camera_3.setStyleSheet(u"QLabel {\n"
+"    font-weight: bold; /* \u0414\u0435\u043b\u0430\u0435\u0442 \u0442\u0435\u043a\u0441\u0442 \u0436\u0438\u0440\u043d\u044b\u043c */\n"
+"	background-color: None;\n"
+"}\n"
+"\n"
+"border: None;")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1140, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1239, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -893,8 +936,9 @@ class Ui_MainWindow(object):
         self.lb_name_camera_2.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0438\u0434\u0435\u043e\u043f\u043e\u0442\u043e\u043a \u0441 \u043a\u0430\u043c\u0435\u0440\u044b", None))
         self.lb_camera.setText("")
         self.btn_clean_textBrw.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u044c", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u0422\u0435\u0440\u043c\u0438\u043d\u0430\u043b", None))
         self.btn_start_camera.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u043f\u0443\u0441\u0442\u0438\u0442\u044c", None))
         self.btn_stop_camera.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c", None))
+        self.btn_delete_points.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u044c \u0442\u043e\u0447\u043a\u0438", None))
+        self.lb_name_camera_3.setText(QCoreApplication.translate("MainWindow", u"\u041a\u0430\u0440\u0442\u0430", None))
     # retranslateUi
 

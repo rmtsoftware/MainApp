@@ -26,7 +26,7 @@ class Base(QMainWindow):  # renaming the class for more clarity
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
  
-        self.setFixedSize(1140, 600)
+        self.setFixedSize(1239, 768)
         self.setWindowTitle("Ground Control Station")
 
         # Setting Button Stats
