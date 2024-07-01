@@ -25,6 +25,9 @@ class Base(QMainWindow):  # renaming the class for more clarity
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+ 
+        self.setFixedSize(1239, 768)
+        self.setWindowTitle("Ground Control Station")
 
         # Setting Button Stats
         self.ui.btn_server_start.setDisabled(False)
@@ -54,12 +57,11 @@ class Base(QMainWindow):  # renaming the class for more clarity
     # Renaming start and stop with more context
     def start_server(self):
 
-        print("Старт сервера")
-        
         self.server = ServerThread()
+        print(f"[INFO] - Запуск сервера: {self.server.HOST}:{self.server.PORT}")
         self.pool.start(self.server)
 
-        # signals from the thread
+        # Сигналы сервера
         self.server.signals.started.connect(self.server_started_actions)
         self.server.signals.connection_timeout.connect(self.timeout_actions)
         self.server.signals.data_received.connect(self._process_rcv_data)
@@ -90,12 +92,12 @@ class Base(QMainWindow):  # renaming the class for more clarity
         self.ui.btn_server_start.setDisabled(False)
         self.ui.btn_server_stop.setDisabled(True)
 
-    @staticmethod
+
     def timeout_actions(self):
         QMessageBox.critical(None, "Ошибка", "Таймаут подключения",
                              QMessageBox.StandardButton.Ok)
 
-    @staticmethod
+
     def display_error(self):
         print('Сервер не запущен, чтобы его останавливать')
         QMessageBox.warning(None, ERROR_TITLE, ERROR_MESSAGE, WARNING_BUTTON)
@@ -106,14 +108,23 @@ class Base(QMainWindow):  # renaming the class for more clarity
 
     @Slot(object)
     def _process_rcv_data(self, data):
+
         self.msg_to_terminal.emit(data, "RCVD")
+
         if "status" in data and data["status"] == "RESPONSE":
+
             if "GPSRESPONSE" in data["msg_data"]:
+                print(data["msg_data"]["GPSRESPONSE"])
                 self.telemetry_to_operator.emit(data["msg_data"]["GPSRESPONSE"])
+
             if "IMURESPONSE" in data["msg_data"]:
+                print(data["msg_data"]["IMURESPONSE"])
                 self.telemetry_to_operator.emit(data["msg_data"]["IMURESPONSE"])
 
-    # ... Rest of the Class ...
+        if "status" in data and data["status"] == "REMOTE":
+            if "REMOTE_VERIFY" in data["msg_data"]:
+                print(data["msg_data"]["REMOTE_VERIFY"])
+                self.telemetry_to_operator.emit(data["msg_data"]["REMOTE_VERIFY"])
 
 
 if __name__ == '__main__':

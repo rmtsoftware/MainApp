@@ -4,9 +4,10 @@
     3. modecontrol
     4. motorcontrol
     5. powerlinecontrol
-    6. manualcommandline
-    7. manualkeyscontrol
-    8. terminalwindow
-    9. datashower
-    10. webengine
-    11. cameracontrol
+    6. manualkeyscontrol
+    7. terminalwindow
+    8. datashower
+    9. webengine
+    10. cameracontrol
+    11. autonmoving
+    

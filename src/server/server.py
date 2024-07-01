@@ -29,11 +29,11 @@ class ServerThread(QRunnable):
         super().__init__()
         self.snd_msg = {'cmd': [], 'msg_data': {}}
 
-        self.HOST = "192.168.0.124" # home
-        #self.HOST = "192.168.31.58"  # directly
-        #self.HOST = "10.0.6.78"     # vpn
+        #self.HOST = "localhost"
+        #self.HOST = "192.168.0.124" # home
+        self.HOST = "192.168.31.58"  # directly
+        #self.HOST = "10.0.6.111"     # vpn
         self.PORT = 12345
-        print(self.HOST, self.PORT)
         
         self.conn = None
         self.no_ro_resp_counts = 0
@@ -42,14 +42,12 @@ class ServerThread(QRunnable):
 
         self.signals.get_gps.connect(self.get_gps)
         self.signals.get_imu.connect(self.get_imu)
-
         self.signals.set_mode.connect(self.set_mode)
-
         self.signals.mtr_cmd.connect(self.mtr_cmd)
-
         self.signals.man_commandline.connect(self.man_commandline)
-
         self.signals.man_key_control.connect(self.man_key_control)
+
+        self.signals.stoped.connect(self.stop_server)
 
     def exception_handler(func):
         def wrapper(*args, **kwargs):
@@ -57,19 +55,18 @@ class ServerThread(QRunnable):
             try:
                 func(*args, **kwargs)
             except TimeoutError as e:
-                print(e, end=': ')
-                print('[ERROR] - Таймаут ожидания подключения клиента к серверу\n')
+                print(f'[ERROR] - server.exception_handler: TimeoutError - {e}')
                 self.signals.connection_timeout.emit()
             except ConnectionAbortedError as e:
-                pass
+                print(f'[ERROR] - server.exception_handler: ConnectionAbortedError - {e}')
             except OSError as e:
-                pass
+                print(f'[ERROR] - server.exception_handler: OSError - {e}')
             except TypeError as e:
-                print(e)
+                print(f'[ERROR] - server.exception_handler: TypeError - {e}')
             except RuntimeError as e:
-                print(e)
-                print('[ERROR] - Перед закрытием приложения отключайте клиента (кнопка отключить)')
+                print(f'[ERROR] - server.exception_handler: RuntimeError - {e}')
             finally:
+                print('[INFO] - Остановка сервера...')
                 self.signals.stoped.emit()
             # ВОЗМОЖНОСТЬ МАСШТАБИРОВАТЬ
 
@@ -117,7 +114,7 @@ class ServerThread(QRunnable):
 
                 while True:
                     raw_data = self._get_data(self.conn)
-                    data = self._parse_data(raw_data)
+                    data = self._convert_data_to_dict(raw_data)
                     self.signals.data_received.emit(data)
 
                     self._send_data(self.conn)
@@ -137,19 +134,20 @@ class ServerThread(QRunnable):
                 return raw_data
 
             else:
-                print(f'\n\t[WARNING] - Сервер не получил ответ {self.noRespCounts} раз')
-                self.no_ro_resp_counts += 1
-                if self.no_ro_resp_counts >= _CTIMEOUT:
-                    raise ConnectionError(
-                        f" [ERROR] - Нет ответа от клиента в течение {self.noRespCounts * _TIMEOUT} секунд!\n")
+                pass
+                #print(f'\n\t[WARNING] - Сервер не получил ответ {self.noRespCounts} раз')
+                #self.no_ro_resp_counts += 1
+                #if self.no_ro_resp_counts >= _CTIMEOUT:
+                #    raise ConnectionError(
+                #        f" [ERROR] - Нет ответа от клиента в течение {self.noRespCounts * _TIMEOUT} секунд!\n")
 
-    def _parse_data(self, raw_data):
+    def _convert_data_to_dict(self, raw_data):
         """Преобразование полученных данных"""
         """Transform received data"""
         try:
             data = json.loads(raw_data)
         except json.JSONDecodeError as e:
-            print(f'[ERROR] - Unable to parse the raw data: {e}')
+            print(f'[ERROR] - server_convert_data_to_dict: json.JSONDecodeError - {e}')
             data = {}
         return data
 
@@ -158,3 +156,10 @@ class ServerThread(QRunnable):
         self.data_to_resp = json.dumps(self.snd_msg).encode()
         if conn is not None:  # Check if conn is not None before calling sendall
             conn.sendall(self.data_to_resp)
+
+    def stop_server(self):
+        if self.conn is not None:
+            self.conn.shutdown(0)
+            self.conn = None
+            self.addr = None
+        print('[INFO] - server.stop_server: Сервер остановлен')

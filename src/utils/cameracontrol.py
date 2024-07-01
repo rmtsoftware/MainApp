@@ -11,6 +11,7 @@ class CameraControl(WebEngineMap):
     
     def __init__(self):
         super(CameraControl, self).__init__()
+        
 
     def _start_camera(self):
         """Старт RTSP потока"""
