@@ -32,7 +32,7 @@ class ServerThread(QRunnable):
         #self.HOST = "localhost"
         #self.HOST = "192.168.0.124" # home
         self.HOST = "192.168.31.58"  # directly
-        #self.HOST = "10.0.6.78"     # vpn
+        #self.HOST = "10.0.6.111"     # vpn
         self.PORT = 12345
         
         self.conn = None
